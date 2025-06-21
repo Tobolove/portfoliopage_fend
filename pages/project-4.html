@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee Shop Project - Tobias Frei | Dynamic Digital Menu </title>
+  <link rel="stylesheet" href="../dist/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Coffee Shop by Tobias Frei - A full-stack dynamic online menu for a cafe  with  API and multi-layered security architecture for managing access across different user roles.">
+
+</head>
+
+<body id="body">
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header with Navigation -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="../index.html" aria-label="Go to homepage">
+          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+        </a>
+      </div>
+
+      <!-- Hidden checkbox for mobile menu toggle -->
+      <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
+      
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="skills.html" class="header__nav-link">Skills</a></li>
+          <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
+          <li><a href="resume.html" class="header__nav-link">Resume</a></li>
+          <li><a href="contact.html" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile menu toggle label -->
+      <label for="menu-toggle" class="header__menu-toggle">
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+      <div class="project-detail__container">
+        <div class="project-detail__content">
+          <div class="project-detail__single-image">
+            <img src="../img/coffee_shop.png" alt="Coffee Shop Secure Digital Menu Platform" class="project-detail__image">
+          </div>
+
+          <div class="project-detail__text">
+            <h1 class="project-detail__title">Coffee Shop Project Dynamic Online Menu</h1>
+            <span class="project-detail__tag">Education</span>
+            
+            <div class="project-detail__info">
+              <p class="project-detail__description">
+                This project involved engineering a full-stack, digitally-enabled cafe experience, centered around a secure and dynamic drink menu. The core challenge was to build a sophisticated API with a multi-layered security architecture to manage access for different user roles—from public customers to internal staff.
+              </p>
+              
+              <h3 class="project-detail__subtitle">Zero-Trust Security Architecture</h3>
+              <p class="project-detail__description">
+                I designed and implemented a robust security model using Auth0 for identity management. The platform features a fine-grained permission system based on user roles (Public, Barista, Manager), enforced by validating JSON Web Tokens (JWTs) on the backend. Each API endpoint is protected by specific permission requirements, ensuring secure access control.
+              </p>
+
+              <h3 class="project-detail__subtitle">Key Features</h3>
+              <ul class="project-detail__list">
+                <li>Zero-trust security architecture with Auth0 identity management</li>
+                <li>Role-based access control (RBAC) for Public, Barista, and Manager roles</li>
+                <li>JWT-based authentication and authorization for all API endpoints</li>
+                <li>Comprehensive RESTful API for menu and drink management</li>
+                <li>Ionic frontend providing intuitive user interface</li>
+                <li>Real-time menu updates</li>
+                <li>Scalable database design for menu items </li>
+              </ul>
+
+              <h3 class="project-detail__subtitle">Technology Stack</h3>
+              <div class="project-detail__tech-grid">
+                <div class="project-detail__tech-category">
+                  <h4>Backend</h4>
+                  <p>Python, Flask, SQLAlchemy</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Security</h4>
+                  <p>Auth0, RBAC, JWT</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Frontend</h4>
+                  <p>Ionic, TypeScript</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Database</h4>
+                  <p>PostgreSQL</p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="project-detail__navigation">
+          <a href="../index.html#latest-projects" class="project-detail__back">Back to Projects</a>
+          <div class="project-detail__nav-links">
+            <a href="project-3.html" class="project-detail__nav-link">← Previous Project</a>
+            <a href="project-5.html" class="project-detail__nav-link">Next Project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__content">
+        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html> 

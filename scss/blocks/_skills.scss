@@ -1,0 +1,176 @@
+﻿@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
+.skills {
+  padding: $spacing-xxl 0;
+  background-color: white;
+  min-height: calc(100vh - 10rem);
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    text-align: center;
+    color: $text-color;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-h1;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-xxl;
+    align-items: start;
+    min-height: 50vh;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__info {
+    width: 100%;
+  }
+
+  &__sidebar {
+    width: 100%;
+    min-height: 400px;
+    background-color: $bg-dark;
+    @include flex-center;
+    color: $text-white;
+    font-size: $font-size-base;
+    box-shadow: $box-shadow;
+    position: sticky;
+    top: 6rem;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    @include mobile {
+      min-height: 250px;
+      position: static;
+      order: -1;
+    }
+  }
+
+  &__sidebar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    min-height: 400px;
+
+    @include mobile {
+      min-height: 250px;
+    }
+  }
+
+  &__section {
+    margin-bottom: $spacing-xxl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    color: $text-color;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid $bg-medium;
+  }
+
+  &__item {
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid color.adjust($bg-medium, $lightness: 10%);
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__item-title {
+    color: $text-color;
+    font-size: $font-size-h3;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__item-level {
+    color: $primary-color;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xs;
+    font-size: $font-size-large;
+  }
+
+  &__item-experience {
+    color: $text-light;
+    font-size: $font-size-small;
+    margin-bottom: $spacing-sm;
+    font-style: italic;
+  }
+
+  &__item-description {
+    color: $text-light;
+    line-height: $line-height-base;
+    font-size: $font-size-base;
+  }
+
+  // Additional specialties section specific styles (similar to interests)
+  &__specialties {
+    display: grid;
+    gap: $spacing-lg;
+  }
+
+  &__specialty-item {
+    padding: $spacing-md;
+    background-color: $bg-light;
+    border-radius: $border-radius;
+    border-left: 4px solid $primary-color;
+  }
+
+  &__specialty-title {
+    color: $text-color;
+    font-size: $font-size-large;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__specialty-description {
+    color: $text-light;
+    line-height: $line-height-base;
+    font-size: $font-size-base;
+  }
+
+  // Mobile specific adjustments
+  @include mobile {
+    &__content {
+      gap: $spacing-lg;
+    }
+
+    &__section {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__section-title {
+      font-size: $font-size-h3;
+    }
+
+    &__item {
+      margin-bottom: $spacing-md;
+      padding-bottom: $spacing-md;
+    }
+
+    &__specialties {
+      gap: $spacing-md;
+    }
+
+    &__specialty-item {
+      padding: $spacing-sm;
+    }
+  }
+}

@@ -1,0 +1,211 @@
+// scss/blocks/_header.scss (Fully Corrected)
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+  backdrop-filter: blur(10px);  // Keep px for blur
+  box-shadow: 0 0.5rem 2rem rgba(13, 27, 62, 0.3),      // Industry standard: 8px 32px
+              0 0.25rem 1rem rgba(25, 55, 109, 0.2);     // Industry standard: 4px 16px
+  border-bottom: 1px solid rgba(64, 158, 255, 0.2);
+  z-index: $z-header;
+  padding: $spacing-md 0;
+  transition: all 0.3s ease;
+  
+  
+  @supports (animation-timeline: scroll()) {
+    animation: header-shrink linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 12rem;  // Keep 0px start, rounded from 200px (192px)
+  }
+  
+  // Alternative approach: Use focus-within and active states to simulate scroll effects
+  &:focus-within,
+  &.scrolled {
+    padding: $spacing-xs 0;
+    background: linear-gradient(135deg, rgba(13, 27, 62, 0.95) 0%, rgba(25, 55, 109, 0.95) 100%);
+    backdrop-filter: blur(15px);  // Keep px for blur
+    box-shadow: 0 0.75rem 2.5rem rgba(13, 27, 62, 0.4),    // Industry standard: 12px 40px
+                0 0.25rem 1.25rem rgba(25, 55, 109, 0.3);  // Industry standard: 4px 20px
+    border-bottom-color: rgba(64, 158, 255, 0.3);
+  }
+
+  // --- THIS BLOCK IS NOW CORRECTED ---
+  &__container {
+    position: relative;
+    @include flex-between; // Mixin with simple declarations
+    @include container;     // Mixin with nested rules comes last
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    
+    a {
+      color: $text-white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: $transition;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__logo-img {
+    height: 3.5rem; 
+    width: auto;
+    transition: $transition;
+
+
+    @include mobile {
+      height: 2rem; // Slightly smaller on mobile
+      max-width: 150px;
+    }
+  }
+
+  // Hidden checkbox for mobile menu
+  &__menu-checkbox {
+    display: none;
+  }
+
+  &__nav {
+    @include mobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: white;
+      box-shadow: $box-shadow;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition;
+      margin-top: $spacing-sm;
+    }
+  }
+
+  // Show mobile menu when checkbox is checked
+  &__menu-checkbox:checked ~ &__nav {
+    @include mobile {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: $spacing-lg;
+
+    @include mobile {
+      flex-direction: column;
+      padding: $spacing-md;
+      gap: $spacing-sm;
+      text-align: center;
+    }
+  }
+
+  &__nav-link {
+    color: $text-white;
+    font-weight: $font-weight-normal;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius;
+    transition: $transition;
+    scroll-margin-top: 6rem; // Account for fixed header (rounded from 100px)
+
+    &:hover,
+    &:focus {
+      background-color: color.adjust($bg-dark, $lightness: 10%);
+      color: $text-white;
+    }
+
+    // Mobile navigation styling - fix text color visibility
+    @include mobile {
+      color: $text-color; // Dark text for mobile white background
+      
+      &:hover,
+      &:focus {
+        background-color: $azure-pale;
+        color: $primary-color;
+      }
+    }
+
+    // Highlight current section using :target pseudo-class
+    &[href="#bio"]:target,
+    &[href="#latest-projects"]:target {
+      background-color: color.adjust($bg-dark, $lightness: 15%);
+      font-weight: $font-weight-bold;
+      
+      @include mobile {
+        background-color: $azure-medium;
+        color: $text-white;
+      }
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: $spacing-xs;
+    cursor: pointer;
+    z-index: $z-header + 1;
+
+    @include mobile {
+      display: flex;
+    }
+  }
+
+  &__menu-icon {
+    width: 1.5rem;      // 24px - industry standard rounded value
+    height: 3px;        // Keep small height in px
+    background-color: $text-white;
+    transition: $transition;
+    display: block;
+  }
+
+  // Animate hamburger to X when checked
+  &__menu-checkbox:checked ~ &__menu-toggle {
+    .header__menu-icon:nth-child(1) {
+      transform: rotate(45deg) translate(0.5rem, 0.5rem);  // 8px - rounded industry standard
+    }
+
+    .header__menu-icon:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__menu-icon:nth-child(3) {
+      transform: rotate(-45deg) translate(0.5rem, -0.5rem);  // 8px - rounded industry standard
+    }
+  }
+
+  
+}
+
+// Keyframes for scroll-based header shrinking
+@keyframes header-shrink {
+  from {
+    padding: $spacing-md 0;
+    background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+    backdrop-filter: blur(10px);  // Keep px for blur
+    box-shadow: 0 0.5rem 2rem rgba(13, 27, 62, 0.3);   // Industry standard: 8px 32px
+  }
+  to {
+    padding: $spacing-xs 0;
+    background: linear-gradient(135deg, rgba(13, 27, 62, 0.95) 0%, rgba(25, 55, 109, 0.95) 100%);
+    backdrop-filter: blur(15px);  // Keep px for blur
+    box-shadow: 0 0.75rem 2.5rem rgba(13, 27, 62, 0.4); // Industry standard: 12px 40px
+  }
+}

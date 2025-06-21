@@ -1,0 +1,6 @@
+// Main SCSS file for Portfolio Homepage
+// Modern Sass with @use instead of deprecated @import
+
+@use 'utils/utils' as *;
+@use 'base/base';
+@use 'blocks/blocks'; 

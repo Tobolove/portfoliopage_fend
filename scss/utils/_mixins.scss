@@ -1,0 +1,150 @@
+// scss/utils/_mixins.scss (Fully Corrected)
+
+// Use the variables module with a namespace (best practice)
+@use 'variables';
+
+// Flexbox utilities (no changes needed)
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Visually hidden (no changes needed)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Responsive breakpoints (no changes needed)
+@mixin mobile {
+  @media (max-width: #{variables.$mobile - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{variables.$mobile}) and (max-width: #{variables.$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{variables.$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile-up {
+  @media (min-width: #{variables.$mobile}) {
+    @content;
+  }
+}
+
+// Primary button mixin (Corrected with & wrapper)
+@mixin button-primary {
+  & {
+    display: inline-block;
+    padding: variables.$spacing-sm variables.$spacing-lg;
+    background: linear-gradient(135deg, variables.$secondary-color 0%, variables.$accent-color 100%);
+    color: variables.$text-white;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    font-weight: variables.$font-weight-bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(variables.$secondary-color, 0.3),
+                0 0.25rem 0.75rem rgba(variables.$secondary-color, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+    color: variables.$text-white;
+    box-shadow: 0 1rem 2rem rgba(variables.$secondary-color, 0.4),
+                0 0.5rem 1rem rgba(variables.$secondary-color, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+// Secondary button mixin (Corrected with & wrapper)
+@mixin button-secondary {
+  & {
+    display: inline-block;
+    padding: variables.$spacing-sm variables.$spacing-lg;
+    background: linear-gradient(135deg, variables.$bg-light 0%, variables.$azure-pale 100%);
+    color: variables.$text-color;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    font-weight: variables.$font-weight-bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0.5rem 1.5rem rgba(variables.$azure-light, 0.3),
+                0 0.25rem 0.75rem rgba(variables.$azure-light, 0.2);
+    border: 2px solid rgba(variables.$navy-medium, 0.2);
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+    color: variables.$text-color;
+    box-shadow: 0 1rem 2rem rgba(variables.$azure-light, 0.4),
+                0 0.5rem 1rem rgba(variables.$azure-light, 0.3);
+    border-color: rgba(variables.$navy-medium, 0.3);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+// Container mixin (Corrected with & wrapper)
+@mixin container {
+  & {
+    max-width: variables.$container-max-width;
+    margin: 0 auto;
+    padding: 0 variables.$spacing-md;
+  }
+
+  @include mobile {
+    padding: 0 variables.$spacing-sm;
+  }
+}
+
+// Card mixin (Corrected with & wrapper)
+@mixin card {
+  & {
+    background-color: white;
+    border-radius: variables.$border-radius;
+    box-shadow: variables.$box-shadow;
+    overflow: hidden;
+    transition: variables.$transition;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  }
+}

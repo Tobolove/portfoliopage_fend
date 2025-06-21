@@ -1,0 +1,19 @@
+{
+    "name": "portfolio-page",
+    "version": "1.0.0",
+    "description": "Personal portfolio website",
+    "private": true,
+    "scripts": {
+        "build-css": "sass scss/main.scss dist/main.css",
+        "watch-css": "sass --watch scss/main.scss:dist/main.css",
+        "build-css-compressed": "sass scss/main.scss dist/main.css --style compressed",
+        "dev": "npm run watch-css"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "sass": "^1.79.3"
+    },
+    "keywords": ["portfolio", "website", "scss", "frontend"],
+    "author": "Your Name",
+    "license": "MIT"
+} 

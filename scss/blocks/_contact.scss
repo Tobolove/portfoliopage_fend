@@ -1,0 +1,64 @@
+// scss/blocks/_contact.scss (Fully Corrected)
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.contact {
+  padding: $spacing-xxl 0;
+  background: linear-gradient(180deg, $azure-pale 0%, rgba(255, 255, 255, 0.95) 100%);
+  scroll-snap-align: start;
+  position: relative;
+
+  &__container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    @include container;
+  }
+
+  &__title {
+    color: $text-color;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-h2;
+  }
+
+  &__description {
+    color: $text-light;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-large;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-sm;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  // --- THIS BLOCK IS NOW CORRECTED ---
+  &__button {
+    // Declarations now come first
+    font-size: $font-size-base;
+    padding: $spacing-md $spacing-xl;
+
+    // Mixin with nested rules comes last
+    @include button-primary;
+
+    &--secondary {
+      // Declaration now comes first
+      padding: $spacing-md $spacing-xl;
+      
+      // Mixin with nested rules comes last
+      @include button-secondary;
+    }
+  }
+}

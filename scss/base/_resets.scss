@@ -1,0 +1,104 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// CSS Reset and Normalize
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;  // Keep px for root font-size as baseline
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; // Account for fixed header (rounded from 100px)
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $bg-color;
+  padding-top: 5rem; // Account for fixed header height (80px -> rem)
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    color: $secondary-color;
+  }
+
+  &:focus {
+    outline: 2px solid $secondary-color;
+    outline-offset: 2px;
+  }
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+
+  &:focus {
+    outline: 2px solid $secondary-color;
+    outline-offset: 2px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-sm;
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+}
+
+p {
+  margin-bottom: $spacing-sm;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+// Skip link for accessibility
+.skip-link {
+  @include visually-hidden;
+
+  &:focus {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $primary-color;
+    color: $text-white;
+    padding: $spacing-sm;
+    z-index: $z-modal;
+    width: auto;
+    height: auto;
+    clip: auto;
+    text-decoration: none;
+  }
+} 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Fyyur - Tobias Frei | Musical Venue & Artist Booking Platform</title>
+  <link rel="stylesheet" href="../dist/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fyyur by Tobias Frei - A full-stack musical venue and artist booking platform that facilitates discovery of new talent and locations with dynamic database-driven backend.">
+
+</head>
+
+<body id="body">
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header with Navigation -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="../index.html" aria-label="Go to main">
+          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+        </a>
+      </div>
+
+      <!-- Hidden checkbox for mobile menu toggle -->
+      <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
+      
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="skills.html" class="header__nav-link">Skills</a></li>
+          <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
+          <li><a href="resume.html" class="header__nav-link">Resume</a></li>
+          <li><a href="contact.html" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile menu toggle label -->
+      <label for="menu-toggle" class="header__menu-toggle">
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+      <div class="project-detail__container">
+        <div class="project-detail__content">
+          <div class="project-detail__single-image">
+            <img src="../img/fyyur.png" alt="Fyyur Musical Venue & Artist Booking Platform" class="project-detail__image">
+          </div>
+
+          <div class="project-detail__text">
+            <h1 class="project-detail__title">Fyyur: Musical Venue & Artist Booking Site</h1>
+            <span class="project-detail__tag">Education</span>
+            
+            <div class="project-detail__info">
+              <p class="project-detail__description">
+                Fyyur is a full-stack web application that serves as a booking site for musical venues and artists, facilitating the discovery of new talent and locations. The platform replaces static mock data with a dynamic, database-driven backend to create a fully persistent and interactive experience.
+              </p>
+              
+              <h3 class="project-detail__subtitle">Database-Driven Platform</h3>
+              <p class="project-detail__description">
+                I transitioned the application from using mock data to a robust and persistent system by connecting it to a PostgreSQL database. Using SQLAlchemy ORM, I designed a relational database schema with normalized models for Artists, Venues, and Shows, ensuring data integrity and optimal performance.
+              </p>
+
+              <h3 class="project-detail__subtitle">Key Features</h3>
+              <ul class="project-detail__list">
+                <li>Dynamic venue and artist discovery platform with advanced search capabilities</li>
+                <li>Real-time show booking system with availability tracking</li>
+                <li>Comprehensive artist and venue profile management</li>
+                <li>Interactive dashboard for managing bookings and performances</li>
+                <li>Normalized relational database design for optimal data relationships</li>
+                <li>Full CRUD operations for venues, artists, and shows</li>
+                <li>Advanced filtering and search functionality across all entities</li>
+              </ul>
+
+              <h3 class="project-detail__subtitle">Technology Stack</h3>
+              <div class="project-detail__tech-grid">
+                <div class="project-detail__tech-category">
+                  <h4>Backend</h4>
+                  <p>Python, Flask, SQLAlchemy</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Database</h4>
+                  <p>PostgreSQL</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Migrations</h4>
+                  <p>Flask-Migrate, Alembic</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Frontend</h4>
+                  <p>HTML, CSS, JavaScript, Bootstrap</p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="project-detail__navigation">
+          <a href="../index.html#latest-projects" class="project-detail__back">Back to Projects</a>
+          <div class="project-detail__nav-links">
+            <a href="project-2.html" class="project-detail__nav-link">← Previous Project</a>
+            <a href="project-4.html" class="project-detail__nav-link">Next Project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__content">
+        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html> 

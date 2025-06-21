@@ -1,0 +1,165 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
+.resume {
+  padding: $spacing-xxl 0;
+  background-color: white;
+  min-height: calc(100vh - 10rem); // Account for header and footer (~160px rounded)
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    text-align: center;
+    color: $text-color;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-h1;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-xxl;
+    align-items: start;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+ 
+
+  &__headshot {
+    width: 100%;
+    position: sticky;
+    top: 6rem;         // Rounded from 100px (account for fixed header + padding)
+    overflow: hidden;
+
+    @include mobile {
+      position: static;
+      order: -1; // Move headshot to top on mobile
+    }
+  }
+
+  &__headshot-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: $border-radius;
+
+    @include mobile {
+      height: 250px;
+    }
+  }
+
+  &__section {
+    margin-bottom: $spacing-xxl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    color: $text-color;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid $bg-medium;
+  }
+
+  &__item {
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid color.adjust($bg-medium, $lightness: 10%);
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__item-title {
+    color: $text-color;
+    font-size: $font-size-h3;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__item-institution {
+    color: $primary-color;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xs;
+    font-size: $font-size-large;
+  }
+
+  &__item-date {
+    color: $text-light;
+    font-size: $font-size-small;
+    margin-bottom: $spacing-sm;
+    font-style: italic;
+  }
+
+  &__item-description {
+    color: $text-light;
+    line-height: $line-height-base;
+    font-size: $font-size-base;
+  }
+
+  // Interests section specific styles
+  &__interests {
+    display: grid;
+    gap: $spacing-lg;
+  }
+
+  &__interest-item {
+    padding: $spacing-md;
+    background-color: $bg-light;
+    border-radius: $border-radius;
+    border-left: 4px solid $primary-color;
+  }
+
+  &__interest-title {
+    color: $text-color;
+    font-size: $font-size-large;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__interest-description {
+    color: $text-light;
+    line-height: $line-height-base;
+    font-size: $font-size-base;
+  }
+
+  // Mobile specific adjustments
+  @include mobile {
+    &__content {
+      gap: $spacing-lg;
+    }
+
+    &__section {
+      margin-bottom: $spacing-lg;
+    }
+
+    &__section-title {
+      font-size: $font-size-h3;
+    }
+
+    &__item {
+      margin-bottom: $spacing-md;
+      padding-bottom: $spacing-md;
+    }
+
+    &__interests {
+      gap: $spacing-md;
+    }
+
+    &__interest-item {
+      padding: $spacing-sm;
+    }
+  }
+} 

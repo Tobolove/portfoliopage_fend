@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Tobias Frei | Strategy Consultant Turned Software Engineer</title>
+  <link rel="stylesheet" href="../dist/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Get in touch with Tobias Frei for your next AI-powered solution, cloud infrastructure project, or strategic technical consultation.">
+
+</head>
+
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header with Navigation -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="../index.html#bio" aria-label="Go to homepage">
+          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+        </a>
+      </div>
+      
+      <!-- Hidden checkbox for mobile menu toggle -->
+      <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
+      
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="skills.html" class="header__nav-link">Skills</a></li>
+          <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
+          <li><a href="resume.html" class="header__nav-link">Resume</a></li>
+          <li><a href="contact.html" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile menu toggle label -->
+      <label for="menu-toggle" class="header__menu-toggle">
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Contact Form Section -->
+    <section class="contact-page">
+      <div class="contact-page__container">
+        <div class="contact-page__header">
+          <h1 class="contact-page__title">Let's Build Something Amazing Together</h1>
+          <p class="contact-page__subtitle">
+            As a strategy consultant turned software engineer, I bring a unique perspective to every project. Whether you need intelligent AI-powered solutions, scalable cloud infrastructure, or strategic technical guidance, let's discuss how my business acumen and technical expertise can bring your vision to life.
+          </p>
+        </div>
+
+        <div class="contact-page__content">
+          <!-- Contact Form -->
+          <div class="contact-page__form-section">
+            <form class="contact-form" action="#" method="GET">
+              <div class="contact-form__group">
+                <label for="name" class="contact-form__label">Full Name *</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="contact-form__input" 
+                  required 
+                  autocomplete="name"
+                  aria-describedby="name-error"
+                >
+                <span id="name-error" class="contact-form__error" aria-live="polite"></span>
+              </div>
+
+              <div class="contact-form__group">
+                <label for="email" class="contact-form__label">Email Address *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="contact-form__input" 
+                  required 
+                  autocomplete="email"
+                  aria-describedby="email-error"
+                >
+                <span id="email-error" class="contact-form__error" aria-live="polite"></span>
+              </div>
+
+              <div class="contact-form__group">
+                <label for="company" class="contact-form__label">Company / Organization</label>
+                <input 
+                  type="text" 
+                  id="company" 
+                  name="company" 
+                  class="contact-form__input"
+                  autocomplete="organization"
+                >
+              </div>
+
+              <div class="contact-form__group">
+                <label for="project-type" class="contact-form__label">Project Type</label>
+                <select id="project-type" name="project-type" class="contact-form__select">
+                  <option value="">Select a project type</option>
+                  <option value="ai-solution">AI-Powered Solution</option>
+                  <option value="cloud-infrastructure">Cloud Infrastructure & DevOps</option>
+                  <option value="full-stack-app">Full-Stack Application</option>
+                  <option value="data-analysis">Data Analysis & Automation</option>
+                  <option value="technical-consultation">Technical Strategy Consultation</option>
+                  <option value="system-optimization">System Optimization</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="contact-form__group">
+                <label for="budget" class="contact-form__label">Project Budget</label>
+                <select id="budget" name="budget" class="contact-form__select">
+                  <option value="">Select your budget range</option>
+                  <option value="under-5k">Under €5,000</option>
+                  <option value="5k-10k">€5,000 - €10,000</option>
+                  <option value="10k-25k">€10,000 - €25,000</option>
+                  <option value="25k-50k">€25,000 - €50,000</option>
+                  <option value="over-50k">Over €50,000</option>
+                  <option value="discuss">Let's discuss</option>
+                </select>
+              </div>
+
+              <div class="contact-form__group">
+                <label for="timeline" class="contact-form__label">Desired Timeline</label>
+                <select id="timeline" name="timeline" class="contact-form__select">
+                  <option value="">Select your timeline</option>
+                  <option value="asap">ASAP</option>
+                  <option value="1-month">Within 1 month</option>
+                  <option value="2-3-months">2-3 months</option>
+                  <option value="3-6-months">3-6 months</option>
+                  <option value="flexible">Flexible</option>
+                </select>
+              </div>
+
+              <div class="contact-form__group contact-form__group--full">
+                <label for="message" class="contact-form__label">Project Details *</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  class="contact-form__textarea" 
+                  rows="6"
+                  required
+                  aria-describedby="message-error"
+                  placeholder="Please describe your project, goals, and any specific requirements..."
+                ></textarea>
+                <span id="message-error" class="contact-form__error" aria-live="polite"></span>
+              </div>
+
+              <div class="contact-form__actions">
+                <button type="submit" class="contact-form__submit">Send Message</button>
+                <button type="button" class="contact-form__reset" onclick="clearContactForm()">Clear Form</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-page__info">
+            <div class="contact-info">
+              <h2 class="contact-info__title">Let's Connect</h2>
+              <p class="contact-info__description">
+                I'm always excited to discuss new opportunities and collaborate on innovative projects. Whether you're looking to build intelligent solutions, optimize workflows, or need strategic technical guidance, I'd love to hear from you.
+              </p>
+
+              <div class="contact-info__items">
+                <address class="contact-info__item">
+                  <h3 class="contact-info__item-title">Email</h3>
+                  <p class="contact-info__item-content">
+                    <a href="mailto:tobolove@icloud.com">tobolove@icloud.com</a>
+                  </p>
+                </address>
+
+                <address class="contact-info__item">
+                  <h3 class="contact-info__item-title">Phone</h3>
+                  <p class="contact-info__item-content">
+                    <a href="tel:+41782122540">+41 78 212 25 40</a>
+                  </p>
+                </address>
+
+                <address class="contact-info__item">
+                  <h3 class="contact-info__item-title">Location</h3>
+                  <p class="contact-info__item-content">
+                    Zurich Helvetiaplatz, Switzerland<br>
+                    Available for remote work worldwide
+                  </p>
+                </address>
+
+                <div class="contact-info__item">
+                  <h3 class="contact-info__item-title">Response Time</h3>
+                  <p class="contact-info__item-content">
+                    I typically respond within <time datetime="PT24H">24 hours</time> during business days.
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info__social">
+                <h3 class="contact-info__social-title">Follow Us</h3>
+                <div class="contact-info__social-links">
+                  <a href="https://www.linkedin.com/in/tobias-frei-837384222/" class="contact-info__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                  <a href="https://github.com/Tobolove" class="contact-info__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__content">
+        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function clearContactForm() {
+      // Get the form element
+      const form = document.querySelector('.contact-form');
+      
+      // Reset all form fields
+      form.reset();
+      
+      // Explicitly reset select dropdowns to their first option
+      const selects = form.querySelectorAll('select');
+      selects.forEach(select => {
+        select.selectedIndex = 0;
+      });
+      
+      // Clear any error messages
+      const errorSpans = form.querySelectorAll('.contact-form__error');
+      errorSpans.forEach(span => {
+        span.textContent = '';
+      });
+      
+      // Remove focus from the button to prevent re-triggering
+      document.activeElement.blur();
+      
+      // Optional: Show a brief confirmation (you can remove this if you don't want it)
+      const resetButton = document.querySelector('.contact-form__reset');
+      const originalText = resetButton.textContent;
+      resetButton.textContent = 'Cleared!';
+      resetButton.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+      
+      setTimeout(() => {
+        resetButton.textContent = originalText;
+        resetButton.style.background = '';
+      }, 1000);
+    }
+  </script>
+
+</body>
+
+</html> 

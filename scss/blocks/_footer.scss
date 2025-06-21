@@ -1,0 +1,29 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.footer {
+  background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+  color: $text-white;
+  padding: $spacing-lg 0;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid rgba(64, 158, 255, 0.2);
+  
+  // Glow effect removed
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: $font-size-base;
+    opacity: 0.9;
+  }
+} 
+

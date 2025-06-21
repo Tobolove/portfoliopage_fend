@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trivia - Tobias Frei | Interactive Learning Platform</title>
+  <link rel="stylesheet" href="../dist/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Trivia: Interactive Quiz Learning Platform by Tobias Frei - A full-stack trivia application backend that transforms static concepts into dynamic, interactive, and community-building platform with scalable API architecture.">
+
+</head>
+
+<body id="body">
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Header with Navigation -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="../index.html" aria-label="Go to homepage">
+          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+        </a>
+      </div>
+
+      <!-- Hidden checkbox for mobile menu toggle -->
+      <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
+      
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="skills.html" class="header__nav-link">Skills</a></li>
+          <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
+          <li><a href="resume.html" class="header__nav-link">Resume</a></li>
+          <li><a href="contact.html" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile menu toggle label -->
+      <label for="menu-toggle" class="header__menu-toggle">
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+        <span class="header__menu-icon" aria-hidden="true"></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main">
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+      <div class="project-detail__container">
+        <div class="project-detail__content">
+          <div class="project-detail__single-image">
+            <img src="../img/trivia.png" alt="Trivia API Interactive Learning Platform" class="project-detail__image">
+          </div>
+
+          <div class="project-detail__text">
+            <h1 class="project-detail__title">Trivia: Interactive Quiz Learning Platform</h1>
+            <span class="project-detail__tag">Education</span>
+            
+            <div class="project-detail__info">
+              <p class="project-detail__description">
+                This project focused on architecting the digital engine for a full-stack trivia application, transforming a static concept into a dynamic, interactive, and community-building platform. The goal was to create a robust and scalable backend to support real-time gameplay and seamless content management for a React frontend.
+              </p>
+              
+              <h3 class="project-detail__subtitle">Scalable API Architecture</h3>
+              <p class="project-detail__description">
+                I engineered a decoupled, RESTful API using Python and Flask, creating a resilient backbone for the application. The system includes dynamic content lifecycle management with sophisticated content management engine, giving administrators seamless control over the trivia ecosystem. I also designed intelligent gameplay orchestration to deliver unique and engaging experiences in every session.
+              </p>
+
+              <h3 class="project-detail__subtitle">Key Features</h3>
+              <ul class="project-detail__list">
+                <li>Scalable RESTful API architecture with Flask and Python</li>
+                <li>Dynamic content management system for trivia questions and categories</li>
+                <li>Intelligent gameplay orchestration for unique quiz experiences</li>
+                <li>Real-time score tracking and leaderboard functionality</li>
+                <li>Administrative dashboard for content lifecycle management</li>
+                <li>Comprehensive test suite using unittest framework</li>
+                <li>React frontend integration for consuming API endpoints</li>
+              </ul>
+
+              <h3 class="project-detail__subtitle">Technology Stack</h3>
+              <div class="project-detail__tech-grid">
+                <div class="project-detail__tech-category">
+                  <h4>Backend</h4>
+                  <p>Python, Flask, SQLAlchemy</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Frontend</h4>
+                  <p>React (API Consumer)</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Database</h4>
+                  <p>PostgreSQL</p>
+                </div>
+                <div class="project-detail__tech-category">
+                  <h4>Testing</h4>
+                  <p>unittest</p>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="project-detail__navigation">
+          <a href="../index.html#latest-projects" class="project-detail__back">← Back to Projects</a>
+          <div class="project-detail__nav-links">
+            <a href="project-4.html" class="project-detail__nav-link">← Previous Project</a>
+            <a href="project-1.html" class="project-detail__nav-link">Next Project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__content">
+        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html> 

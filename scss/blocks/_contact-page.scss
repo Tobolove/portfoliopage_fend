@@ -1,0 +1,263 @@
+// scss/blocks/_contact-page.scss (Fully Corrected)
+
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+// Contact Page Styles
+.contact-page {
+  padding: $spacing-xxl 0;
+  background: linear-gradient(180deg, $azure-pale 0%, $bg-light 100%);
+  min-height: calc(100vh - 10rem);
+  position: relative;
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-xxl;
+  }
+
+  &__title {
+    color: $text-color;
+    font-size: $font-size-h1;
+    margin-bottom: $spacing-md;
+  }
+
+  &__subtitle {
+    color: $text-light;
+    font-size: $font-size-large;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: $line-height-base;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: $spacing-xxl;
+    align-items: start;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+  }
+
+  &__form-section {
+    background: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius;
+    box-shadow: 0 0.5rem 2rem rgba($navy-medium, 0.1),
+                0 0.25rem 1rem rgba($navy-medium, 0.05);
+    border: 1px solid rgba($azure-medium, 0.1);
+
+    @include mobile {
+      padding: $spacing-lg;
+    }
+  }
+
+
+}
+
+// Contact Form Styles
+.contact-form {
+  &__group {
+    margin-bottom: $spacing-lg;
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    display: block;
+    color: $text-color;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xs;
+    font-size: $font-size-base;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 2px solid rgba($azure-medium, 0.2);
+    border-radius: $border-radius;
+    font-family: $font-family-primary;
+    font-size: $font-size-base;
+    color: $text-color;
+    background-color: $bg-light;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $azure-medium;
+      box-shadow: 0 0 0 3px rgba($azure-medium, 0.1);
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    &::placeholder {
+      color: $text-light;
+      opacity: 0.7;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: $line-height-base;
+  }
+
+  &__select {
+    cursor: pointer;
+    padding-right: $spacing-xl;
+  }
+
+  &__error {
+    display: block;
+    color: #dc3545;
+    font-size: $font-size-small;
+    margin-top: $spacing-xs;
+    min-height: 1.2rem;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-xl;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+  }
+
+  // --- THIS BLOCK IS NOW CORRECTED ---
+  &__submit {
+    // Declarations first
+    font-size: $font-size-base;
+    flex: 1;
+
+    // Mixins last
+    @include button-primary;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  // --- THIS BLOCK IS NOW CORRECTED ---
+  &__reset {
+    // Declarations first
+    font-size: $font-size-base;
+    flex: 1;
+    
+    // Mixins last
+    @include button-secondary;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+// Contact Info Styles
+.contact-info {
+  &__title {
+    color: $text-color;
+    font-size: $font-size-h2;
+    margin-bottom: $spacing-md;
+  }
+
+  &__description {
+    color: $text-light;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__items {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__item {
+    margin-bottom: $spacing-lg;
+    padding: $spacing-md;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: $border-radius;
+    border-left: 4px solid $azure-medium;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-title {
+    color: $navy-medium;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__item-content {
+    color: $text-light;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    margin: 0;
+
+    a {
+      color: $azure-dark;
+      text-decoration: none;
+      font-weight: $font-weight-bold;
+      transition: $transition;
+
+      &:hover,
+      &:focus {
+        color: $secondary-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__social {
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($azure-medium, 0.2);
+  }
+
+  &__social-title {
+    color: $text-color;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+  }
+
+  &__social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__social-link {
+    display: inline-block;
+    padding: $spacing-xs $spacing-sm;
+    background: rgba($azure-medium, 0.1);
+    color: $navy-medium;
+    text-decoration: none;
+    border-radius: $border-radius;
+    font-size: $font-size-small;
+    font-weight: $font-weight-bold;
+    transition: $transition;
+
+    &:hover,
+    &:focus {
+      background: $azure-medium;
+      color: $text-white;
+      transform: translateY(-2px);
+    }
+  }
+}
