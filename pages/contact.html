@@ -18,21 +18,19 @@ CONTACT PAGE
 <!-- Skip the links for keyboard navigation -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
-
-
 <!-- Header with Navigation -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="header__container">
       <div class="header__logo">
         <a href="../index.html#bio" aria-label="Go to homepage">
-          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+          <img src="../img/logo.png" alt="" class="header__logo-img">
         </a>
       </div>
       
   <!-- Hidden checkbox for menu toggle switch mobile and desktop -->
       <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
       
-      <nav class="header__nav" aria-label="Main navigation">
+      <nav class="header__nav" id="main-navigation" aria-label="Main navigation">
         <ul class="header__nav-list">
           <li><a href="skills.html" class="header__nav-link">Skills</a></li>
           <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
@@ -42,7 +40,10 @@ CONTACT PAGE
       </nav>
 
   <!-- Mobile menu change into X property -->
-      <label for="menu-toggle" class="header__menu-toggle">
+      <label for="menu-toggle" class="header__menu-toggle" 
+             aria-controls="main-navigation"
+             aria-haspopup="true"
+             aria-expanded="false">
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
@@ -50,15 +51,14 @@ CONTACT PAGE
     </div>
   </header>
 
-
 <!-- Main Content Main Tag for accessibility-->
-  <main id="#main">
+  <main id="main">
     
   <!-- Contact Form Section -->
-    <section class="contact-page">
+    <section class="contact-page" aria-labelledby="page-title">
       <div class="contact-page__container">
         <div class="contact-page__header">
-          <h1 class="contact-page__title">Let's Build Something Amazing Together</h1>
+          <h1 class="contact-page__title" id="page-title">Let's Build Something Amazing Together</h1>
           <p class="contact-page__subtitle">
             As a strategy consultant turned software engineer, I bring a unique perspective to every project. Whether you need intelligent AI-powered solutions, scalable cloud infrastructure, or strategic technical guidance, let's discuss how my business acumen and technical expertise can bring your vision to life.
           </p>
@@ -69,25 +69,28 @@ CONTACT PAGE
           <div class="contact-page__form-section">
             <form class="contact-form" action="#" method="GET">
               <div class="contact-form__group">
-                <label for="name" class="contact-form__label">Full Name *</label>
+                <label for="name" class="contact-form__label">Full Name <span aria-hidden="true">*</span></label>
                 <input 
                   type="text" 
                   id="name" 
                   name="name" 
                   class="contact-form__input" 
-                  required minlength="3"
+                  required 
+                  aria-required="true"
+                  minlength="3"
                   autocomplete="name"
                 >
               </div>
 
               <div class="contact-form__group">
-                <label for="email" class="contact-form__label">Email Address *</label>
+                <label for="email" class="contact-form__label">Email Address <span aria-hidden="true">*</span></label>
                 <input 
                   type="email" 
                   id="email" 
                   name="email" 
                   class="contact-form__input" 
                   required 
+                  aria-required="true"
                   autocomplete="email"
                 >
               </div>
@@ -143,13 +146,15 @@ CONTACT PAGE
               </div>
 
               <div class="contact-form__group contact-form__group--full">
-                <label for="message" class="contact-form__label">Project Details *</label>
+                <label for="message" class="contact-form__label">Project Details <span aria-hidden="true">*</span></label>
                 <textarea 
                   id="message" 
                   name="message" 
                   class="contact-form__textarea" 
                   rows="6"
-                  required required minlength="12"
+                  required 
+                  aria-required="true" 
+                  minlength="12"
                   placeholder="Please describe your project, goals, and any specific requirements..."
                 ></textarea>
               </div>
@@ -162,7 +167,7 @@ CONTACT PAGE
           </div>
 
     <!-- Contact Information -->
-          <div class="contact-page__info">
+          <aside class="contact-page__info" role="complementary">
             <div class="contact-info">
               <h2 class="contact-info__title">Let's Connect</h2>
               <p class="contact-info__description">
@@ -203,12 +208,12 @@ CONTACT PAGE
               <div class="contact-info__social">
                 <h3 class="contact-info__social-title">Follow Us</h3>
                 <div class="contact-info__social-links">
-                  <a href="https://www.linkedin.com/in/tobias-frei-837384222/" class="contact-info__social-link" aria-label="LinkedIn" target="_blank">LinkedIn</a>
-                  <a href="https://github.com/Tobolove" class="contact-info__social-link" aria-label="GitHub" target="_blank" >GitHub</a>
+                  <a href="https://www.linkedin.com/in/tobias-frei-837384222/" class="contact-info__social-link" target="_blank">LinkedIn</a>
+                  <a href="https://github.com/Tobolove" class="contact-info__social-link" target="_blank" >GitHub</a>
                 </div>
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -218,8 +223,10 @@ CONTACT PAGE
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__content">
-        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+        <p class="footer__text">&copy; <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
       </div>
     </div>
   </footer>
-</html> 
+</body>
+
+</html>

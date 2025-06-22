@@ -19,18 +19,18 @@ Skills PAGE
   <a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- Header with Navigation -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="header__container">
       <div class="header__logo">
         <a href="../index.html#bio" aria-label="Go to homepage">
-          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+          <img src="../img/logo.png" alt="Tobolove DevOps Logo" class="header__logo-img">
         </a>
       </div>
       
   <!-- Hidden checkbox for menu toggle switch mobile and desktop -->
       <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
       
-      <nav class="header__nav" aria-label="Main navigation">
+      <nav class="header__nav" id="main-navigation" aria-label="Main navigation">
         <ul class="header__nav-list">
           <li><a href="skills.html" class="header__nav-link">Skills</a></li>
           <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
@@ -40,7 +40,11 @@ Skills PAGE
       </nav>
 
   <!-- Mobile menu change into X property -->
-      <label for="menu-toggle" class="header__menu-toggle">
+      <label for="menu-toggle" class="header__menu-toggle"
+             aria-controls="main-navigation"
+             aria-haspopup="true"
+             aria-expanded="false"
+             aria-label="Open navigation menu">
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
@@ -50,18 +54,18 @@ Skills PAGE
 
   
 <!-- Main Content Main Tag for accessibility-->
-  <main id="#main">
+  <main id="main">
 
   <!-- Skills Section -->
-    <section class="skills">
+    <section class="skills" aria-labelledby="page-title">
       <div class="skills__container">
-        <h1 class="skills__title">Core Competencies & Transferable Skills</h1>
+        <h1 class="skills__title" id="page-title">Core Competencies & Transferable Skills</h1>
         <div class="skills__content">
           <div class="skills__info">
 
     <!-- Software & AI Development Section -->
-            <section class="skills__section">
-              <h2 class="skills__section-title">Software & AI Development</h2>
+            <section class="skills__section" aria-labelledby="software-ai-title">
+              <h2 class="skills__section-title" id="software-ai-title">Software & AI Development</h2>
               
               <div class="skills__item">
                 <h3 class="skills__item-title">Backend Development</h3>
@@ -101,8 +105,8 @@ Skills PAGE
             </section>
 
     <!-- DevOps & Cloud Infrastructure Section -->
-            <section class="skills__section">
-              <h2 class="skills__section-title">DevOps & Cloud Infrastructure</h2>
+            <section class="skills__section" aria-labelledby="devops-title">
+              <h2 class="skills__section-title" id="devops-title">DevOps & Cloud Infrastructure</h2>
     
               <div class="skills__item">
                 <h3 class="skills__item-title">Cloud Platforms</h3>
@@ -133,8 +137,8 @@ Skills PAGE
             </section>
 
     <!-- Strategic & Project Leadership Section -->
-            <section class="skills__section">
-              <h2 class="skills__section-title">Strategic & Project Leadership</h2>
+            <section class="skills__section" aria-labelledby="leadership-title">
+              <h2 class="skills__section-title" id="leadership-title">Strategic & Project Leadership</h2>
               
               <div class="skills__item">
                 <h3 class="skills__item-title">Full-Lifecycle Project Management</h3>
@@ -156,8 +160,8 @@ Skills PAGE
             </section>
 
     <!-- Methodologies & Leadership Section -->
-            <section class="skills__section">
-              <h2 class="skills__section-title">Methodologies & Leadership</h2>
+            <section class="skills__section" aria-labelledby="methodologies-title">
+              <h2 class="skills__section-title" id="methodologies-title">Methodologies & Leadership</h2>
               <div class="skills__specialties">
                 <div class="skills__specialty-item">
                   <h3 class="skills__specialty-title">Agile & Lean Methodologies</h3>
@@ -190,23 +194,23 @@ Skills PAGE
             </section>
           </div>
           
-          <aside class="skills__sidebar">
-            <img src="../img/skills.jpg" alt="Picture of Tobias as a holistic and knwoledgable person" class="skills__sidebar-img">
-          </asidede>
+          <aside class="skills__sidebar" role="complementary">
+            <img src="../img/skills.jpg" alt="A holistic and knowledgeable person." class="skills__sidebar-img">
+          </aside>
         </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer__container">
       <div class="footer__content">
-        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+        <p class="footer__text">© <time datetime="2025">est. 2025</time> Tobias Frei. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
 </body>
 
-</html> 
+</html>

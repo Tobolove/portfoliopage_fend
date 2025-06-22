@@ -11,7 +11,6 @@ Project 1: SGOP World
   <link rel="stylesheet" href="../dist/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SGOP World by Tobias Frei - An AI-powered knowledge ecosystem that transforms traditional document access in grid operations with advanced RAG architecture and autonomous workflows.">
-
 </head>
 
 <body>
@@ -19,18 +18,19 @@ Project 1: SGOP World
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <!-- Header with Navigation -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="header__container">
       <div class="header__logo">
         <a href="../index.html" aria-label="Go to homepage">
-          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+          
+          <img src="../img/logo.png" alt="Tobolove Devops Logo" class="header__logo-img">
         </a>
       </div>
 
       <!-- Hidden checkbox for mobile menu toggle -->
       <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
 
-      <nav class="header__nav" aria-label="Main navigation">
+      <nav class="header__nav" id="main-navigation" aria-label="Main navigation">
         <ul class="header__nav-list">
           <li><a href="skills.html" class="header__nav-link">Skills</a></li>
           <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
@@ -40,7 +40,10 @@ Project 1: SGOP World
       </nav>
 
       <!-- Mobile menu toggle label -->
-      <label for="menu-toggle" class="header__menu-toggle">
+      <label for="menu-toggle" class="header__menu-toggle"
+             aria-controls="main-navigation"
+             aria-haspopup="true"
+             aria-expanded="false">
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
@@ -51,7 +54,7 @@ Project 1: SGOP World
   <!-- Main Content -->
   <main id="main">
     <!-- Project Detail Section -->
-    <section class="project-detail">
+    <section class="project-detail" aria-labelledby="project-title">
       <div class="project-detail__container">
         <div class="project-detail__content">
           <div class="project-detail__images">
@@ -60,7 +63,7 @@ Project 1: SGOP World
           </div>
 
           <div class="project-detail__text">
-            <h1 class="project-detail__title">SGOP World: An AI-Powered Knowledge Ecosystem for Grid Operations</h1>
+            <h1 class="project-detail__title" id="project-title">SGOP World: An AI-Powered Knowledge Ecosystem for Grid Operations</h1>
             <span class="project-detail__tag">Work</span>
             
             <div class="project-detail__info">
@@ -107,18 +110,18 @@ Project 1: SGOP World
                 </div>
                 <div class="project-detail__tech-category">
                   <h4>Database</h4>
-                  <p>PostgreSQL, Qdrant (Vector DB) Azure Blob Storage</p>
+                  <p>PostgreSQL, Qdrant (Vector DB), Azure Blob Storage</p>
                 </div>
               </div>
 
               <div class="project-detail__buttons">
-                <a href="https://SGOP.world" class="project-detail__button" target="_blank" rel="noopener noreferrer">Visit SGOP World</a>
+                <a href="https://SGOP.world" class="project-detail__button" target="_blank">Visit SGOP World</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="project-detail__navigation">
+        <div class="project-detail__navigation" role="navigation" aria-label="Project navigation">
           <a href="../index.html#latest-projects" class="project-detail__back">Back to Projects</a>
           <div class="project-detail__nav-links">
             <a href="project-5.html" class="project-detail__nav-link">← Previous Project</a>
@@ -130,14 +133,14 @@ Project 1: SGOP World
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer__container">
       <div class="footer__content">
-        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+        <p class="footer__text">© <time datetime="2025">est. 2025</time> Tobias Frei. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
 </body>
 
-</html> 
+</html>

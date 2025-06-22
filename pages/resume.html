@@ -20,18 +20,18 @@ Resume Page
 
 
 <!-- Header with Navigation -->
-  <header class="header">
+  <header class="header" role="banner">
     <div class="header__container">
       <div class="header__logo">
         <a href="../index.html#bio" aria-label="Go to homepage">
-          <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
+          <img src="../img/logo.png" alt="Tobolove DevOps Logo" class="header__logo-img">
         </a>
       </div>
       
   <!-- Hidden checkbox for menu toggle switch mobile and desktop -->
       <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
       
-      <nav class="header__nav" aria-label="Main navigation">
+      <nav class="header__nav" id="main-navigation" aria-label="Main navigation">
         <ul class="header__nav-list">
           <li><a href="skills.html" class="header__nav-link">Skills</a></li>
           <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
@@ -41,7 +41,11 @@ Resume Page
       </nav>
 
   <!-- Mobile menu change into X property -->
-      <label for="menu-toggle" class="header__menu-toggle">
+      <label for="menu-toggle" class="header__menu-toggle"
+             aria-controls="main-navigation"
+             aria-haspopup="true"
+             aria-expanded="false"
+             aria-label="Open navigation menu">
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
@@ -51,22 +55,22 @@ Resume Page
 
 
 <!-- Main Content Main Tag for accessibility-->
-  <main id="#main">
+  <main id="main">
 
   <!-- Resume Section -->
-    <section class="resume">
+    <section class="resume" aria-labelledby="resume-page-title">
       <div class="resume__container">
-        <h1 class="resume__title">Resume</h1>
+        <h1 class="resume__title" id="resume-page-title">Resume</h1>
         <div class="resume__content">
           <div class="resume__info">
 
     <!-- Recent Experience Section -->
-            <section class="resume__section">
-              <h2 class="resume__section-title">Recent Experience</h2>
+            <section class="resume__section" aria-labelledby="experience-title">
+              <h2 class="resume__section-title" id="experience-title">Recent Experience</h2>
               <div class="resume__item">
                 <h3 class="resume__item-title">Digital Engineer & Software Engineer Intern</h3>
                 <p class="resume__item-institution">VIVAVIS Schweiz AG</p>
-                <p class="resume__item-date"><time datetime="2024">2024</time> - <time datetime="2025-06-16">est. 2025</time></p>
+                <p class="resume__item-date"><time datetime="2024">2024</time> - <time datetime="2025">est. 2025</time></p>
                 <p class="resume__item-description">
                   Transitioned into the tech industry, focusing on building smart cloud infrastructure and developing dynamic full-stack applications. Developed and deployed full-stack applications using Python, SQL, and Angular, contributing to large-scale smart digital infrastructure projects. Gained hands-on experience with Microsoft Azure, implementing cloud services for scalable and resilient infrastructure.
                 </p>
@@ -91,9 +95,9 @@ Resume Page
               </div>
             </section>
 
-      <!-- Entrepreneurial Ventures Section -->
-            <section class="resume__section">
-              <h2 class="resume__section-title">Entrepreneurial Ventures</h2>
+    <!-- Entrepreneurial Ventures Section -->
+            <section class="resume__section" aria-labelledby="ventures-title">
+              <h2 class="resume__section-title" id="ventures-title">Entrepreneurial Ventures</h2>
               <div class="resume__item">
                 <h3 class="resume__item-title">Co-Founder</h3>
                 <p class="resume__item-institution">5Favours</p>
@@ -113,9 +117,9 @@ Resume Page
               </div>
             </section>
 
-      <!-- Personal Interests Section -->
-            <section class="resume__section">
-              <h2 class="resume__section-title">Personal Interests</h2>
+    <!-- Personal Interests Section -->
+            <section class="resume__section" aria-labelledby="interests-title">
+              <h2 class="resume__section-title" id="interests-title">Personal Interests</h2>
               <div class="resume__interests">
                 <div class="resume__interest-item">
                   <h3 class="resume__interest-title">Outdoor Exploration</h3>
@@ -141,8 +145,8 @@ Resume Page
             </section>
           </div>
           
-          <aside class="resume__headshot">
-            <img src="../img/resume.jpg" alt="Professional Resume" class="resume__headshot-img">
+          <aside class="resume__headshot" role="complementary">
+            <img src="../img/resume.jpg" alt="A professional headshot of Tobias Frei." class="resume__headshot-img">
           </aside>
         </div>
       </div>
@@ -151,10 +155,10 @@ Resume Page
 
 
 <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="footer__container">
       <div class="footer__content">
-        <p class="footer__text">© <time datetime="2025-06-16">est. 2025</time> Tobias Frei. All rights reserved.</p>
+        <p class="footer__text">© <time datetime="2025">est. 2025</time> Tobias Frei. All rights reserved.</p>
       </div>
     </div>
   </footer>
