@@ -47,6 +47,16 @@ This document outlines the accessibility features implemented to meet WCAG A and
 - ✅ Interactive elements have appropriate roles
 - ✅ State changes are communicated to screen readers
 
+### Motion and Animation
+- ✅ Respects user's motion preferences via `prefers-reduced-motion`
+- ✅ Animations disabled when users have reduced motion settings
+- ✅ Smooth scrolling disabled for users with motion sensitivity
+- ✅ All transitions reduced to minimal duration for accessibility
+- ✅ Hover effects globally disabled to reduce visual distractions
+- ✅ Essential hover states preserved (links show underline for clarity)
+- ✅ Project card transitions and transforms specifically disabled
+- ✅ Card hover animations (scaling, elevation) removed for stability
+
 ## Technical Implementation
 
 ### Semantic HTML
@@ -61,6 +71,7 @@ This document outlines the accessibility features implemented to meet WCAG A and
 - ✅ Scroll-snap for enhanced navigation experience
 - ✅ CSS :target pseudo-class for section highlighting
 - ✅ No JavaScript dependency for core functionality
+- ✅ Motion preferences respected via `prefers-reduced-motion` media query
 
 ### ARIA Attributes
 - ✅ aria-label for screen reader users
@@ -80,6 +91,7 @@ This document outlines the accessibility features implemented to meet WCAG A and
 3. **Color Contrast**: Use tools like WebAIM Contrast Checker
 4. **Mobile Testing**: Test on various devices and screen sizes
 5. **Automated Testing**: Use tools like axe-core or Lighthouse
+6. **Motion Testing**: Test with reduced motion settings enabled in OS/browser
 
 ## Notes
 
@@ -90,4 +102,5 @@ This document outlines the accessibility features implemented to meet WCAG A and
 - The site is fully responsive and works on all device sizes
 - No JavaScript dependencies make the site more reliable and accessible
 - CSS scroll-behavior and scroll-snap provide smooth navigation experience
-- Progressive enhancement approach ensures functionality even with CSS disabled 
+- Progressive enhancement approach ensures functionality even with CSS disabled
+- Motion preferences are respected via `prefers-reduced-motion` media query for users with vestibular disorders 

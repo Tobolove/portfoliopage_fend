@@ -101,4 +101,74 @@ ul, ol {
     clip: auto;
     text-decoration: none;
   }
+}
+
+// Accessibility: REMOVE ANIMATIONS FOR PREFERENCE FOR PEOPLE WITH EPILEPSY (especially the cool submit animation ;))
+@media (prefers-reduced-motion: reduce) {
+  // Remove smooth scrolling
+  html {
+    scroll-behavior: auto;
+  }
+
+  // Disable all animations and transitions
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  // Disable all hover effects globally
+  *:hover {
+    transform: none !important;
+    scale: none !important;
+    background-color: inherit !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+    opacity: inherit !important;
+  }
+
+  
+  a:hover,
+  button:hover {
+    color: inherit !important;
+  
+  }
+
+  // Specifically target known animations
+  .latest-projects__item::before {
+    animation: none !important;
+  }
+
+  .header {
+    animation: none !important;
+    animation-timeline: none !important;
+  }
+
+  .contact-form__submit:invalid {
+    animation: none !important;
+  }
+
+ 
+  .latest-projects__card,
+  .latest-projects__card-img,
+  .latest-projects__card-tag {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .latest-projects__card:hover,
+  .latest-projects__card:focus-within {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+
+  .latest-projects__card:hover .latest-projects__card-img,
+  .latest-projects__card:hover .latest-projects__card-tag {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
 } 

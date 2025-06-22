@@ -101,6 +101,58 @@ ul, ol {
   text-decoration: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  *:hover {
+    transform: none !important;
+    scale: none !important;
+    background-color: inherit !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+    opacity: inherit !important;
+  }
+  a:hover,
+  button:hover {
+    color: inherit !important;
+  }
+  .latest-projects__item::before {
+    animation: none !important;
+  }
+  .header {
+    animation: none !important;
+    animation-timeline: none !important;
+  }
+  .contact-form__submit:invalid {
+    animation: none !important;
+  }
+  .latest-projects__card,
+  .latest-projects__card-img,
+  .latest-projects__card-tag {
+    transition: none !important;
+    transform: none !important;
+  }
+  .latest-projects__card:hover,
+  .latest-projects__card:focus-within {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+  .latest-projects__card:hover .latest-projects__card-img,
+  .latest-projects__card:hover .latest-projects__card-tag {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+}
 .header {
   position: fixed;
   top: 0;
