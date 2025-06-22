@@ -1,7 +1,25 @@
-// scss/blocks/_contact-page.scss (Fully Corrected)
+// scss/blocks/_contact-page.scss
 
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
+
+// Keyframes
+// COOL CLICK ANIMATION Key Frames
+@keyframes flash-red {
+  /* At the start of the animation, make it fully red */
+  0% {
+    background-color: $azure-pale;
+  }
+
+  50% {
+    /* At the middle of the animation, make it slightly transparent */
+    background-color: $warning-color;
+  }
+  /* At the end of the animation, it will revert to its normal state */
+  100% {
+    background-color: $azure-pale;
+  }
+}
 
 // Contact Page Styles
 .contact-page {
@@ -51,8 +69,7 @@
     background: $bg-light;
     padding: $spacing-xl;
     border-radius: $border-radius;
-    box-shadow: 0 0.5rem 2rem rgba($navy-medium, 0.1),
-                0 0.25rem 1rem rgba($navy-medium, 0.05);
+    box-shadow: 0 0.5rem 2rem rgba($navy-medium, 0.1);
     border: 1px solid rgba($azure-medium, 0.1);
 
     @include mobile {
@@ -60,7 +77,13 @@
     }
   }
 
-
+  &__info {
+    background: $bg-light;
+    padding: $spacing-xl;
+    border-radius: $border-radius;
+    box-shadow: 0 0.5rem 2rem rgba($navy-medium, 0.1);
+    border: 1px solid rgba($azure-medium, 0.1);
+  }
 }
 
 // Contact Form Styles
@@ -98,7 +121,11 @@
       outline: none;
       border-color: $azure-medium;
       box-shadow: 0 0 0 3px rgba($azure-medium, 0.1);
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba($azure-pale, 0.8);
+    }
+
+    &:invalid {
+      border-color: $warning-color;
     }
 
     &::placeholder {
@@ -118,13 +145,6 @@
     padding-right: $spacing-xl;
   }
 
-  &__error {
-    display: block;
-    color: #dc3545;
-    font-size: $font-size-small;
-    margin-top: $spacing-xs;
-    min-height: 1.2rem;
-  }
 
   &__actions {
     display: flex;
@@ -137,29 +157,30 @@
     }
   }
 
-  // --- THIS BLOCK IS NOW CORRECTED ---
+
   &__submit {
-    // Declarations first
     font-size: $font-size-base;
     flex: 1;
 
     // Mixins last
     @include button-primary;
-
     @include mobile {
       width: 100%;
     }
   }
 
-  // --- THIS BLOCK IS NOW CORRECTED ---
+
   &__reset {
-    // Declarations first
     font-size: $font-size-base;
     flex: 1;
     
-    // Mixins last
     @include button-secondary;
-
+    
+    &:hover {
+      background: rgba($warning-color, 0.5);
+      animation: flash-red 2.5s infinite ease-in-out;
+    }
+    
     @include mobile {
       width: 100%;
     }
@@ -188,13 +209,9 @@
   &__item {
     margin-bottom: $spacing-lg;
     padding: $spacing-md;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba($bg-medium, 0.15);
     border-radius: $border-radius;
     border-left: 4px solid $azure-medium;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   &__item-title {

@@ -1,5 +1,4 @@
-// Main SCSS file for Portfolio Homepage
-// Modern Sass with @use instead of deprecated @import
+// Main SCSS file for Portfolio Homepage  @import is depreciated so i used @use instead
 
 @use 'utils/utils' as *;
 @use 'base/base';

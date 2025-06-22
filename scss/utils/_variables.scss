@@ -1,12 +1,13 @@
-@use 'sass:color';
-
-// Colors - Navy, Azure, and White palette using RGBA
+// Colors - Navy, Azure, and White palette 
 $navy-dark: rgba(13, 27, 62, 1);        // Deep navy blue
 $navy-medium: rgba(25, 55, 109, 1);     // Medium navy blue
 $azure-dark: rgba(0, 119, 190, 1);      // Deep azure blue
 $azure-medium: rgba(64, 158, 255, 1);   // Medium azure blue
 $azure-light: rgba(173, 216, 255, 1);   // Light azure blue
 $azure-pale: rgba(240, 249, 255, 1);    // Very pale azure
+
+// Warning and error colors
+$warning-color: rgba(239, 91, 84, 0.8);     // Red
 
 // Semantic color variables
 $primary-color: $navy-medium;            // Main brand color
@@ -20,35 +21,35 @@ $bg-light: rgba(255, 255, 255, 1);      // Light background (pure white)
 $bg-medium: $azure-light;                // Medium background
 $bg-dark: $navy-medium;                  // Dark background
 
-// Typography
-$font-family-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-$font-size-base: 1rem;        // 16px base
-$font-size-small: 0.875rem;   // 14px
-$font-size-large: 1.125rem;   // 18px
-$font-size-h1: 2.5rem;        // 40px
-$font-size-h2: 2rem;          // 32px
-$font-size-h3: 1.5rem;        // 24px
+// Fonts and stuff
+$font-family-primary: 'Inter', 'Segoe UI',  sans-serif;
+$font-size-base: 1rem;        
+$font-size-small: 0.9rem;   
+$font-size-large: 1.1rem;   
+$font-size-h1: 2.5rem;        
+$font-size-h2: 2rem;          
+$font-size-h3: 1.5rem;        
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 $line-height-base: 1.6;
 
-// Spacing (using industry standard rem values)
-$spacing-xs: 0.5rem;    // 8px
-$spacing-sm: 1rem;      // 16px
-$spacing-md: 1.5rem;    // 24px
-$spacing-lg: 2rem;      // 32px
-$spacing-xl: 3rem;      // 48px
-$spacing-xxl: 4rem;     // 64px
+// Spacing 
+$spacing-xs: 0.5rem;    
+$spacing-sm: 1rem;      
+$spacing-md: 1.5rem;    
+$spacing-lg: 2rem;      
+$spacing-xl: 3rem;      
+$spacing-xxl: 4rem;     
 
-// Layout
-$container-max-width: 1200px;    // Keep px for container max-width
-$border-radius: 8px;             // Keep px for border-radius as requested
-$box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);  // Convert shadow blur to rem
+// Layout containers
+$container-max-width: 1200px;    
+$border-radius: 0.5rem;            
+$box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);  
 $transition: all 0.3s ease;
 
 // Breakpoints (keep px for media queries)
-$mobile: 768px;
-$tablet: 1024px;
+$mobile: 769px;
+$tablet: 1025px;
 
 // Z-index
 $z-header: 1000;

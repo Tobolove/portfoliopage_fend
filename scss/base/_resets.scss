@@ -11,7 +11,7 @@
 html {
   font-size: 16px;  // Keep px for root font-size as baseline
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem; // Account for fixed header (rounded from 100px)
+  scroll-padding-top: 6rem; // Account for fixed header
 }
 
 body {
@@ -20,7 +20,7 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $bg-color;
-  padding-top: 5rem; // Account for fixed header height (80px -> rem)
+  padding-top: 5rem; // Account for fixed header height 
 }
 
 img {

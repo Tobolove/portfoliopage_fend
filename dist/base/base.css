@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgb(13, 27, 62);
+  background-color: rgb(240, 249, 255);
+  padding-top: 5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: rgb(64, 158, 255);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover, a:focus {
+  color: rgb(64, 158, 255);
+}
+a:focus {
+  outline: 2px solid rgb(64, 158, 255);
+  outline-offset: 2px;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+button:focus {
+  outline: 2px solid rgb(64, 158, 255);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link:focus {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(25, 55, 109);
+  color: rgb(255, 255, 255);
+  padding: 1rem;
+  z-index: 1002;
+  width: auto;
+  height: auto;
+  clip: auto;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=base.css.map */

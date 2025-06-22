@@ -1,3 +1,7 @@
+<!-- =========================================================
+CONTACT PAGE
+========================================================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +10,17 @@
   <title>Contact - Tobias Frei | Strategy Consultant Turned Software Engineer</title>
   <link rel="stylesheet" href="../dist/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Get in touch with Tobias Frei for your next AI-powered solution, cloud infrastructure project, or strategic technical consultation.">
-
+  <meta name="description" content="Get in touch with Tobias Frei for your next AI-powered solution, cloud infrastructure project, or strategic consultation.">
 </head>
 
 <body>
-  <!-- Skip link for accessibility -->
+
+<!-- Skip the links for keyboard navigation -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Header with Navigation -->
+
+
+<!-- Header with Navigation -->
   <header class="header">
     <div class="header__container">
       <div class="header__logo">
@@ -23,7 +29,7 @@
         </a>
       </div>
       
-      <!-- Hidden checkbox for mobile menu toggle -->
+  <!-- Hidden checkbox for menu toggle switch mobile and desktop -->
       <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
       
       <nav class="header__nav" aria-label="Main navigation">
@@ -35,7 +41,7 @@
         </ul>
       </nav>
 
-      <!-- Mobile menu toggle label -->
+  <!-- Mobile menu change into X property -->
       <label for="menu-toggle" class="header__menu-toggle">
         <span class="header__menu-icon" aria-hidden="true"></span>
         <span class="header__menu-icon" aria-hidden="true"></span>
@@ -44,9 +50,11 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="main">
-    <!-- Contact Form Section -->
+
+<!-- Main Content Main Tag for accessibility-->
+  <main id="#main">
+    
+  <!-- Contact Form Section -->
     <section class="contact-page">
       <div class="contact-page__container">
         <div class="contact-page__header">
@@ -55,9 +63,9 @@
             As a strategy consultant turned software engineer, I bring a unique perspective to every project. Whether you need intelligent AI-powered solutions, scalable cloud infrastructure, or strategic technical guidance, let's discuss how my business acumen and technical expertise can bring your vision to life.
           </p>
         </div>
-
         <div class="contact-page__content">
-          <!-- Contact Form -->
+          
+    <!-- Contact Form -->
           <div class="contact-page__form-section">
             <form class="contact-form" action="#" method="GET">
               <div class="contact-form__group">
@@ -67,11 +75,9 @@
                   id="name" 
                   name="name" 
                   class="contact-form__input" 
-                  required 
+                  required minlength="3"
                   autocomplete="name"
-                  aria-describedby="name-error"
                 >
-                <span id="name-error" class="contact-form__error" aria-live="polite"></span>
               </div>
 
               <div class="contact-form__group">
@@ -83,9 +89,7 @@
                   class="contact-form__input" 
                   required 
                   autocomplete="email"
-                  aria-describedby="email-error"
                 >
-                <span id="email-error" class="contact-form__error" aria-live="polite"></span>
               </div>
 
               <div class="contact-form__group">
@@ -104,10 +108,10 @@
                 <select id="project-type" name="project-type" class="contact-form__select">
                   <option value="">Select a project type</option>
                   <option value="ai-solution">AI-Powered Solution</option>
-                  <option value="cloud-infrastructure">Cloud Infrastructure & DevOps</option>
-                  <option value="full-stack-app">Full-Stack Application</option>
+                  <option value="cloud-infrastructure">Cloud Infrastructure</option>
+                  <option value="full-stack-app">Webpage</option>
                   <option value="data-analysis">Data Analysis & Automation</option>
-                  <option value="technical-consultation">Technical Strategy Consultation</option>
+                  <option value="technical-consultation">Strategy Consultation</option>
                   <option value="system-optimization">System Optimization</option>
                   <option value="other">Other</option>
                 </select>
@@ -145,21 +149,19 @@
                   name="message" 
                   class="contact-form__textarea" 
                   rows="6"
-                  required
-                  aria-describedby="message-error"
+                  required required minlength="12"
                   placeholder="Please describe your project, goals, and any specific requirements..."
                 ></textarea>
-                <span id="message-error" class="contact-form__error" aria-live="polite"></span>
               </div>
 
               <div class="contact-form__actions">
                 <button type="submit" class="contact-form__submit">Send Message</button>
-                <button type="button" class="contact-form__reset" onclick="clearContactForm()">Clear Form</button>
+                <button type="reset" class="contact-form__reset">Clear Form</button>
               </div>
             </form>
           </div>
 
-          <!-- Contact Information -->
+    <!-- Contact Information -->
           <div class="contact-page__info">
             <div class="contact-info">
               <h2 class="contact-info__title">Let's Connect</h2>
@@ -201,8 +203,8 @@
               <div class="contact-info__social">
                 <h3 class="contact-info__social-title">Follow Us</h3>
                 <div class="contact-info__social-links">
-                  <a href="https://www.linkedin.com/in/tobias-frei-837384222/" class="contact-info__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                  <a href="https://github.com/Tobolove" class="contact-info__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://www.linkedin.com/in/tobias-frei-837384222/" class="contact-info__social-link" aria-label="LinkedIn" target="_blank">LinkedIn</a>
+                  <a href="https://github.com/Tobolove" class="contact-info__social-link" aria-label="GitHub" target="_blank" >GitHub</a>
                 </div>
               </div>
             </div>
@@ -220,43 +222,4 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    function clearContactForm() {
-      // Get the form element
-      const form = document.querySelector('.contact-form');
-      
-      // Reset all form fields
-      form.reset();
-      
-      // Explicitly reset select dropdowns to their first option
-      const selects = form.querySelectorAll('select');
-      selects.forEach(select => {
-        select.selectedIndex = 0;
-      });
-      
-      // Clear any error messages
-      const errorSpans = form.querySelectorAll('.contact-form__error');
-      errorSpans.forEach(span => {
-        span.textContent = '';
-      });
-      
-      // Remove focus from the button to prevent re-triggering
-      document.activeElement.blur();
-      
-      // Optional: Show a brief confirmation (you can remove this if you don't want it)
-      const resetButton = document.querySelector('.contact-form__reset');
-      const originalText = resetButton.textContent;
-      resetButton.textContent = 'Cleared!';
-      resetButton.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
-      
-      setTimeout(() => {
-        resetButton.textContent = originalText;
-        resetButton.style.background = '';
-      }, 1000);
-    }
-  </script>
-
-</body>
-
 </html> 

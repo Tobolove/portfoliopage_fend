@@ -1,4 +1,4 @@
-// scss/blocks/_header.scss (Fully Corrected)
+// scss/blocks/_header.scss 
 
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
@@ -11,10 +11,9 @@
   right: 0;
   width: 100%;
   background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
-  backdrop-filter: blur(10px);  // Keep px for blur
-  box-shadow: 0 0.5rem 2rem rgba(13, 27, 62, 0.3),      // Industry standard: 8px 32px
-              0 0.25rem 1rem rgba(25, 55, 109, 0.2);     // Industry standard: 4px 16px
-  border-bottom: 1px solid rgba(64, 158, 255, 0.2);
+  backdrop-filter: blur(10px);  
+  box-shadow: 0 0.5rem 2rem rgba($azure-medium, 0.4);         
+  border-bottom-color: rgba($azure-medium, 0.3);
   z-index: $z-header;
   padding: $spacing-md 0;
   transition: all 0.3s ease;
@@ -23,25 +22,24 @@
   @supports (animation-timeline: scroll()) {
     animation: header-shrink linear both;
     animation-timeline: scroll();
-    animation-range: 0px 12rem;  // Keep 0px start, rounded from 200px (192px)
+    animation-range: 0px 45rem;  // very soft shrink effect
   }
   
-  // Alternative approach: Use focus-within and active states to simulate scroll effects
+  // focus-within and active states to scroll effects
   &:focus-within,
   &.scrolled {
     padding: $spacing-xs 0;
-    background: linear-gradient(135deg, rgba(13, 27, 62, 0.95) 0%, rgba(25, 55, 109, 0.95) 100%);
-    backdrop-filter: blur(15px);  // Keep px for blur
-    box-shadow: 0 0.75rem 2.5rem rgba(13, 27, 62, 0.4),    // Industry standard: 12px 40px
-                0 0.25rem 1.25rem rgba(25, 55, 109, 0.3);  // Industry standard: 4px 20px
-    border-bottom-color: rgba(64, 158, 255, 0.3);
+    background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
+    backdrop-filter: blur(15px); 
+    box-shadow: 0 0.75rem 2.5rem rgba($azure-medium, 0.4);               
+    border-bottom-color: rgba($azure-medium, 0.3);
   }
 
-  // --- THIS BLOCK IS NOW CORRECTED ---
+  
   &__container {
     position: relative;
-    @include flex-between; // Mixin with simple declarations
-    @include container;     // Mixin with nested rules comes last
+    @include flex-between; 
+    @include container;    
   }
 
   &__logo {
@@ -123,7 +121,7 @@
     padding: $spacing-xs $spacing-sm;
     border-radius: $border-radius;
     transition: $transition;
-    scroll-margin-top: 6rem; // Account for fixed header (rounded from 100px)
+    scroll-margin-top: 6rem; 
 
     &:hover,
     &:focus {
@@ -131,26 +129,13 @@
       color: $text-white;
     }
 
-    // Mobile navigation styling - fix text color visibility
+    // Mobile navigation styling 
     @include mobile {
-      color: $text-color; // Dark text for mobile white background
-      
+      color: $text-color;
       &:hover,
       &:focus {
         background-color: $azure-pale;
         color: $primary-color;
-      }
-    }
-
-    // Highlight current section using :target pseudo-class
-    &[href="#bio"]:target,
-    &[href="#latest-projects"]:target {
-      background-color: color.adjust($bg-dark, $lightness: 15%);
-      font-weight: $font-weight-bold;
-      
-      @include mobile {
-        background-color: $azure-medium;
-        color: $text-white;
       }
     }
   }
@@ -161,7 +146,7 @@
     gap: 4px;
     padding: $spacing-xs;
     cursor: pointer;
-    z-index: $z-header + 1;
+    z-index: $z-header + 1000;
 
     @include mobile {
       display: flex;
@@ -169,25 +154,20 @@
   }
 
   &__menu-icon {
-    width: 1.5rem;      // 24px - industry standard rounded value
-    height: 3px;        // Keep small height in px
+    width: 1.5rem;      
+    height: 3px;        
     background-color: $text-white;
     transition: $transition;
-    display: block;
   }
 
-  // Animate hamburger to X when checked
+  // Animate the hambuger stripes to make them into an X
   &__menu-checkbox:checked ~ &__menu-toggle {
     .header__menu-icon:nth-child(1) {
-      transform: rotate(45deg) translate(0.5rem, 0.5rem);  // 8px - rounded industry standard
-    }
-
-    .header__menu-icon:nth-child(2) {
-      opacity: 0;
+      transform: rotate(45deg) translate(0.5rem, 0.5rem); 
     }
 
     .header__menu-icon:nth-child(3) {
-      transform: rotate(-45deg) translate(0.5rem, -0.5rem);  // 8px - rounded industry standard
+      transform: rotate(-45deg) translate(0.5rem, -0.5rem);  
     }
   }
 
@@ -199,13 +179,13 @@
   from {
     padding: $spacing-md 0;
     background: linear-gradient(135deg, $navy-dark 0%, $navy-medium 100%);
-    backdrop-filter: blur(10px);  // Keep px for blur
-    box-shadow: 0 0.5rem 2rem rgba(13, 27, 62, 0.3);   // Industry standard: 8px 32px
+    backdrop-filter: blur(10px);  
+    box-shadow: 0 0.5rem 2rem rgba($azure-medium, 0.3);  
   }
   to {
     padding: $spacing-xs 0;
-    background: linear-gradient(135deg, rgba(13, 27, 62, 0.95) 0%, rgba(25, 55, 109, 0.95) 100%);
-    backdrop-filter: blur(15px);  // Keep px for blur
-    box-shadow: 0 0.75rem 2.5rem rgba(13, 27, 62, 0.4); // Industry standard: 12px 40px
+    background: linear-gradient(135deg, rgba($navy-dark, 0.95) 0%, rgba($navy-medium, 0.95) 100%);
+    backdrop-filter: blur(15px);  
+    box-shadow: 0 0.75rem 2.5rem rgba($azure-medium, 0.4);
   }
 }

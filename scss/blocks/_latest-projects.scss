@@ -45,45 +45,24 @@
     padding: $spacing-xl $spacing-xxl;
     margin-bottom: $spacing-md;
     position: relative;
-    cursor: grab;
-
-    &:active {
-      cursor: grabbing;
-    }
-
-    // Style scrollbar but keep it visible for UX clarity
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* Firefox */
-    
-    &::-webkit-scrollbar { /* WebKit */
-      height: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 4px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-      
-      &:hover {
-        background: rgba(0, 0, 0, 0.3);
-      }
-    }
-
+    cursor: auto;
   
 
-    // Add smooth scrolling with momentum on touch devices
-    -webkit-overflow-scrolling: touch;
-
+    // Style scrollbar
+    scrollbar-width: medium; 
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; 
+    
+    &:hover {
+      scrollbar-color: rgba(0, 0, 0, 0.3) transparent; 
+      cursor: auto;
+    }
+    
     @include mobile {
       display: none; // Hide slider on mobile
     }
   }
 
-  // Scroll hint/indicator
+  // Scroll text  (hidden on mobile)
   &__scroll-hint {
     text-align: center;
     color: $text-light;
@@ -145,9 +124,9 @@
     }
   }
 
-  // --- THIS BLOCK IS NOW CORRECTED ---
+
   &__card {
-    // Declarations moved before the @include
+
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -162,6 +141,7 @@
       scroll-snap-stop: always;
       min-width: 75%;
       width: 75%;
+      // cursor: pointer;
       max-width: 480px;
       height: 520px;
       flex-shrink: 0;
@@ -225,7 +205,7 @@
       transform: scale(1.08);
     }
 
-    // Ensure images show top part and are full width
+    //  images showd top part and are full width updated
     .latest-projects__slider & {
       width: 100%;
       object-fit: cover;
@@ -261,7 +241,7 @@
       font-weight: 700;
       margin-bottom: $spacing-xs;
       line-height: 1.25;
-      letter-spacing: -0.02em;
+      
     }
   }
 
@@ -315,7 +295,7 @@
 
   &__card-placeholder {
     width: 100%;
-    height: 16rem;  // 256px - rounded industry standard (16 * 16px)
+    height: 16rem;  
     background: linear-gradient(135deg, $azure-light 0%, rgba(255, 255, 255, 0.8) 100%);
     @include flex-center;
     color: $navy-medium;
@@ -324,16 +304,12 @@
     position: relative;
     overflow: hidden;
     
-    // Pattern overlay removed
+  
     
-    span {
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-    }
+    
 
     @include mobile {
-      height: 12rem;  // 192px - rounded industry standard (12 * 16px)
+      height: 12rem;  
     }
   }
 
@@ -341,12 +317,11 @@
     text-align: center;
   }
 
-  // --- THIS BLOCK IS NOW CORRECTED ---
   &__cta {
-    // Declaration moved before the @include
+
     font-size: $font-size-base;
     
-    // Mixin with nested rules comes last
+
     @include button-primary;
   }
 }

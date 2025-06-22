@@ -4,7 +4,7 @@
 
 .skills {
   padding: $spacing-xxl 0;
-  background-color: white;
+  background-color: $bg-light;
   min-height: calc(100vh - 10rem);
 
   &__container {
@@ -121,7 +121,7 @@
     font-size: $font-size-base;
   }
 
-  // Additional specialties section specific styles (similar to interests)
+  // Additional specialties section specific styles
   &__specialties {
     display: grid;
     gap: $spacing-lg;

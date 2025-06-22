@@ -1,4 +1,3 @@
-// scss/blocks/_contact.scss (Fully Corrected)
 
 @use '../utils/variables' as *;
 @use '../utils/mixins' as *;
@@ -44,9 +43,9 @@
     }
   }
 
-  // --- THIS BLOCK IS NOW CORRECTED ---
+
   &__button {
-    // Declarations now come first
+
     font-size: $font-size-base;
     padding: $spacing-md $spacing-xl;
 
@@ -54,10 +53,10 @@
     @include button-primary;
 
     &--secondary {
-      // Declaration now comes first
+
       padding: $spacing-md $spacing-xl;
       
-      // Mixin with nested rules comes last
+
       @include button-secondary;
     }
   }

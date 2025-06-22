@@ -1,9 +1,7 @@
-// scss/utils/_mixins.scss (Fully Corrected)
+// Mixins for common styling and making consistent design across all pages
+@use 'variables' ; // 
 
-// Use the variables module with a namespace (best practice)
-@use 'variables';
-
-// Flexbox utilities (no changes needed)
+// Flexbox utilities 
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -16,7 +14,7 @@
   align-items: center;
 }
 
-// Visually hidden (no changes needed)
+// Visually hidden mixin for accessibility
 @mixin visually-hidden {
   position: absolute;
   width: 1px;
@@ -24,12 +22,12 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(0, 0, 0, 0); 
   white-space: nowrap;
   border: 0;
 }
 
-// Responsive breakpoints (no changes needed)
+// Responsive breakpoints for tablets and desktops 
 @mixin mobile {
   @media (max-width: #{variables.$mobile - 1px}) {
     @content;
@@ -54,32 +52,31 @@
   }
 }
 
-// Primary button mixin (Corrected with & wrapper)
+// Primary button
 @mixin button-primary {
   & {
     display: inline-block;
-    padding: variables.$spacing-sm variables.$spacing-lg;
-    background: linear-gradient(135deg, variables.$secondary-color 0%, variables.$accent-color 100%);
+    padding: variables.$spacing-sm;
+    background: linear-gradient(135deg, variables.$secondary-color 100%, variables.$accent-color 0%);
     color: variables.$text-white;
     text-decoration: none;
     border: none;
-    border-radius: 50px;
+    border-radius: 4rem;
     font-weight: variables.$font-weight-bold;
     transition: all 0.3s ease;
     cursor: pointer;
     text-align: center;
-    box-shadow: 0 0.5rem 1.5rem rgba(variables.$secondary-color, 0.3),
-                0 0.25rem 0.75rem rgba(variables.$secondary-color, 0.2);
+    box-shadow: 0 0.5rem 1.5rem rgba(variables.$secondary-color, 0.3);
     border: 2px solid rgba(255, 255, 255, 0.1);
   }
 
   &:hover,
   &:focus {
     transform: translateY(-3px);
+    background: linear-gradient(135deg, variables.$secondary-color 0%, variables.$accent-color 100%);
     color: variables.$text-white;
-    box-shadow: 0 1rem 2rem rgba(variables.$secondary-color, 0.4),
-                0 0.5rem 1rem rgba(variables.$secondary-color, 0.3);
-    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1rem 2rem rgba(variables.$secondary-color, 0.4);
+    border-color: rgba(variables.$azure-light, 0.3);
   }
 
   &:active {
@@ -87,7 +84,7 @@
   }
 }
 
-// Secondary button mixin (Corrected with & wrapper)
+// Secondary button mixin 
 @mixin button-secondary {
   & {
     display: inline-block;
@@ -96,7 +93,7 @@
     color: variables.$text-color;
     text-decoration: none;
     border: none;
-    border-radius: 50px;
+    border-radius: 4rem;
     font-weight: variables.$font-weight-bold;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -110,6 +107,7 @@
   &:focus {
     transform: translateY(-3px);
     color: variables.$text-color;
+    background: linear-gradient(135deg, variables.$bg-light 100%, variables.$azure-pale 0%);
     box-shadow: 0 1rem 2rem rgba(variables.$azure-light, 0.4),
                 0 0.5rem 1rem rgba(variables.$azure-light, 0.3);
     border-color: rgba(variables.$navy-medium, 0.3);
@@ -120,7 +118,7 @@
   }
 }
 
-// Container mixin (Corrected with & wrapper)
+// Container mixin 
 @mixin container {
   & {
     max-width: variables.$container-max-width;
@@ -133,7 +131,7 @@
   }
 }
 
-// Card mixin (Corrected with & wrapper)
+// Card mixin 
 @mixin card {
   & {
     background-color: white;
@@ -145,6 +143,6 @@
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   }
 }
