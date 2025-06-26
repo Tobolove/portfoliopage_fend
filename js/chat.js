@@ -7,7 +7,7 @@ class PortfolioChatbot {
         this.messages = [
             {
                 type: 'bot',
-                content: "Hi! I'm your portfolio AI assistant. Feel free to ask me about projects, skills, experience, or anything else you'd like to know!"
+                content: "Hi! I'm your AI-powered portfolio assistant connected to Tobias's personal database. I can answer questions about his projects, skills, experience, and background. What would you like to know? 🚀"
             }
         ];
 
@@ -121,18 +121,61 @@ class PortfolioChatbot {
         this.showLoading();
         this.scrollToBottom();
 
-        // Simulate AI response delay
-        await this.delay(800 + Math.random() * 1200);
+        try {
+            // Call your real API endpoint
+            const response = await fetch('https://personal-api-sand.vercel.app/personal/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    question: content,
+                    personal_ids: [1], // Use ID 1 (Tobias Frei VIVAVIS) as default
+                    detailed_mode: this.isDetailedMode
+                })
+            });
 
-        // Generate and add bot response
-        const response = this.generateResponse(content);
-        this.messages.push({ type: 'bot', content: response });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-        // Hide loading and render final messages
-        this.hideLoading();
-        this.renderMessages();
-        this.scrollToBottom();
-        this.saveChatHistory();
+            const data = await response.json();
+
+            if (data.success && data.answer) {
+                this.messages.push({ type: 'bot', content: data.answer });
+            } else {
+                throw new Error(data.error || 'API returned unsuccessful response');
+            }
+
+        } catch (error) {
+            console.error('API Error:', error);
+            
+            // Fallback to local response if API fails
+            const fallbackResponse = this.generateFallbackResponse(content, error);
+            this.messages.push({ type: 'bot', content: fallbackResponse });
+        } finally {
+            // Hide loading and render final messages
+            this.hideLoading();
+            this.renderMessages();
+            this.scrollToBottom();
+            this.saveChatHistory();
+        }
+    }
+
+    generateFallbackResponse(userMessage, error) {
+        // Show user that we're in fallback mode
+        const errorMessage = error.message.toLowerCase();
+        
+        if (errorMessage.includes('network') || errorMessage.includes('fetch')) {
+            return "Sorry, I'm having trouble connecting to my knowledge base right now. Please check your internet connection and try again. In the meantime, I can tell you that this portfolio showcases modern web development skills and various projects.";
+        }
+        
+        if (errorMessage.includes('500') || errorMessage.includes('503')) {
+            return "My AI brain is taking a quick coffee break ☕ Please try again in a moment. While you wait, feel free to explore the other sections of the portfolio!";
+        }
+        
+        // Fallback to simplified local responses
+        return this.generateResponse(userMessage) + "\n\n*Note: I'm currently using simplified responses. My full AI capabilities will return shortly.*";
     }
 
     generateResponse(userMessage) {
@@ -338,7 +381,7 @@ class PortfolioChatbot {
         this.messages = [
             {
                 type: 'bot',
-                content: "Chat cleared! Hi again! I'm your portfolio AI assistant. What would you like to know?"
+                content: "Chat cleared! Hi again! I'm your AI-powered portfolio assistant connected to Tobias's personal database. What would you like to know? 🚀"
             }
         ];
         this.renderMessages();
