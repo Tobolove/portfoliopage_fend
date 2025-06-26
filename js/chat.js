@@ -121,8 +121,18 @@ class PortfolioChatbot {
         this.showLoading();
         this.scrollToBottom();
 
+        // Test other endpoints first
+        this.testOtherEndpoints();
+
         try {
-            // Direct call to your deployed API
+            // Direct call to your deployed API with detailed logging
+            console.log('🚀 Calling API:', 'https://personal-api-sand.vercel.app/personal/chat');
+            console.log('📤 Payload:', {
+                question: content,
+                personal_ids: [1],
+                detailed_mode: this.isDetailedMode
+            });
+
             const response = await fetch('https://personal-api-sand.vercel.app/personal/chat', {
                 method: 'POST',
                 headers: {
@@ -136,11 +146,17 @@ class PortfolioChatbot {
                 })
             });
 
+            console.log('📥 Response status:', response.status);
+            console.log('📥 Response headers:', [...response.headers.entries()]);
+
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const errorText = await response.text();
+                console.error('❌ Response error:', errorText);
+                throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
             }
 
             const data = await response.json();
+            console.log('📄 Response data:', data);
 
             if (data.success && data.answer) {
                 // Success! Show real AI response
@@ -151,7 +167,11 @@ class PortfolioChatbot {
             }
 
         } catch (error) {
-            console.error('API Error:', error);
+            console.error('❌ API Error Details:', {
+                message: error.message,
+                name: error.name,
+                stack: error.stack
+            });
             
             // Fallback to enhanced local responses with helpful error info
             let fallbackMessage;
@@ -419,6 +439,31 @@ class PortfolioChatbot {
 
     delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async testOtherEndpoints() {
+        console.log('🧪 Testing other API endpoints...');
+        
+        try {
+            // Test root endpoint
+            const rootResponse = await fetch('https://personal-api-sand.vercel.app/');
+            console.log('📍 Root endpoint (/): ', rootResponse.status, rootResponse.ok);
+            
+            // Test personal endpoint
+            const personalResponse = await fetch('https://personal-api-sand.vercel.app/personal');
+            console.log('📍 Personal endpoint (/personal): ', personalResponse.status, personalResponse.ok);
+            
+            if (!personalResponse.ok) {
+                const errorText = await personalResponse.text();
+                console.log('❌ Personal endpoint error:', errorText);
+            } else {
+                const data = await personalResponse.json();
+                console.log('✅ Personal data:', data);
+            }
+            
+        } catch (error) {
+            console.log('🔍 Endpoint test error:', error.message);
+        }
     }
 }
 
