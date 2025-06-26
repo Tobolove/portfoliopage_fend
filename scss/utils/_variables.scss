@@ -28,7 +28,12 @@ $font-size-small: 0.9rem;
 $font-size-large: 1.1rem;   
 $font-size-h1: 2.5rem;        
 $font-size-h2: 2rem;          
-$font-size-h3: 1.5rem;        
+$font-size-h3: 1.5rem;
+
+// Alias variables for compatibility
+$font-size-sm: $font-size-small;
+$font-size-lg: $font-size-large;
+$font-size-xs: 0.75rem;        
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 $line-height-base: 1.6;

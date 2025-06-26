@@ -22,7 +22,7 @@
   @supports (animation-timeline: scroll()) {
     animation: header-shrink linear both;
     animation-timeline: scroll();
-    animation-range: 0px 45rem;  // very soft shrink effect
+    animation-range: 0px 15rem;  // very soft shrink effect
   }
   
   // focus-within and active states to scroll effects
