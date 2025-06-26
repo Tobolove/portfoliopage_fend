@@ -133,7 +133,7 @@ class PortfolioChatbot {
                 detailed_mode: this.isDetailedMode
             });
 
-            const response = await fetch('https://personal-api-sand.vercel.app/personal/chat', {
+            const response = await fetch('http://localhost:5000/personal/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
