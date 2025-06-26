@@ -7,7 +7,7 @@ class PortfolioChatbot {
         this.messages = [
             {
                 type: 'bot',
-                content: "Hi! I'm your AI-powered portfolio assistant connected to Tobias's personal database. I can answer questions about his projects, skills, experience, and background. What would you like to know? 🚀"
+                content: "Hi! I'm your **live AI assistant** powered by OpenAI and connected to Tobias's personal database via Vercel. I can provide intelligent answers about his projects, skills, experience, and background using real AI! What would you like to know? 🚀"
             }
         ];
 
@@ -122,15 +122,16 @@ class PortfolioChatbot {
         this.scrollToBottom();
 
         try {
-            // Call your real API endpoint
+            // Direct call to your deployed API
             const response = await fetch('https://personal-api-sand.vercel.app/personal/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                 },
                 body: JSON.stringify({
                     question: content,
-                    personal_ids: [1], // Use ID 1 (Tobias Frei VIVAVIS) as default
+                    personal_ids: [1], // Tobias Frei VIVAVIS profile
                     detailed_mode: this.isDetailedMode
                 })
             });
@@ -142,7 +143,9 @@ class PortfolioChatbot {
             const data = await response.json();
 
             if (data.success && data.answer) {
+                // Success! Show real AI response
                 this.messages.push({ type: 'bot', content: data.answer });
+                console.log('✅ Real AI response received from deployed API');
             } else {
                 throw new Error(data.error || 'API returned unsuccessful response');
             }
@@ -150,9 +153,19 @@ class PortfolioChatbot {
         } catch (error) {
             console.error('API Error:', error);
             
-            // Fallback to local response if API fails
-            const fallbackResponse = this.generateFallbackResponse(content, error);
-            this.messages.push({ type: 'bot', content: fallbackResponse });
+            // Fallback to enhanced local responses with helpful error info
+            let fallbackMessage;
+            
+            if (error.message.includes('Failed to fetch')) {
+                fallbackMessage = "🤖 **Connection Issue**\n\nI'm temporarily unable to reach my AI brain on the server. Don't worry though - I have smart fallback responses!\n\n";
+            } else if (error.message.includes('500')) {
+                fallbackMessage = "⚡ **Server Busy**\n\nMy AI backend is processing other requests. Using local intelligence for now!\n\n";
+            } else {
+                fallbackMessage = "🔄 **Fallback Mode**\n\nSwitching to local responses while the AI connection sorts itself out.\n\n";
+            }
+            
+            const localResponse = this.generateResponse(content);
+            this.messages.push({ type: 'bot', content: fallbackMessage + localResponse });
         } finally {
             // Hide loading and render final messages
             this.hideLoading();
@@ -162,51 +175,45 @@ class PortfolioChatbot {
         }
     }
 
-    generateFallbackResponse(userMessage, error) {
-        // Show user that we're in fallback mode
-        const errorMessage = error.message.toLowerCase();
-        
-        if (errorMessage.includes('network') || errorMessage.includes('fetch')) {
-            return "Sorry, I'm having trouble connecting to my knowledge base right now. Please check your internet connection and try again. In the meantime, I can tell you that this portfolio showcases modern web development skills and various projects.";
-        }
-        
-        if (errorMessage.includes('500') || errorMessage.includes('503')) {
-            return "My AI brain is taking a quick coffee break ☕ Please try again in a moment. While you wait, feel free to explore the other sections of the portfolio!";
-        }
-        
-        // Fallback to simplified local responses
-        return this.generateResponse(userMessage) + "\n\n*Note: I'm currently using simplified responses. My full AI capabilities will return shortly.*";
-    }
-
     generateResponse(userMessage) {
         const message = userMessage.toLowerCase();
         
-        // Project-related responses
+        // SGOP World specific responses
+        if (message.includes('sgop') || message.includes('vivavis') || message.includes('grid operator')) {
+            const responses = [
+                "**🔥 SGOP World - AI-Powered Knowledge Ecosystem**\n\nThis is my current **professional project at VIVAVIS**, focusing on creating an AI-powered knowledge ecosystem specifically designed for grid operators in the energy sector.\n\n**Key Features:**\n- AI-enhanced knowledge management\n- Grid operator workflow optimization\n- Enterprise-scale solution\n- Real-world application in energy infrastructure\n\nIt represents the perfect combination of my **strategy consulting background** with **AI/software engineering** skills!",
+                "**SGOP World** is my flagship project at **VIVAVIS** - it's an **AI-Powered Knowledge Ecosystem for Grid Operators**.\n\n🎯 **Purpose**: Streamline knowledge management in electrical grid operations\n🤖 **Technology**: AI-enhanced search and insights\n🏢 **Scale**: Enterprise-level energy sector application\n💡 **Innovation**: Combines domain expertise with cutting-edge AI\n\nThis project showcases how **strategy consulting experience** translates perfectly into understanding complex business requirements for technical solutions!",
+                "**SGOP World Project Highlights:**\n\n- **Company**: VIVAVIS (energy sector technology)\n- **Role**: Leading AI knowledge ecosystem development\n- **Target Users**: Grid operators and energy professionals\n- **Technology Stack**: AI/ML, knowledge management systems\n- **Impact**: Improving efficiency in critical energy infrastructure\n\nThis project perfectly demonstrates the transition from **strategy consulting** to **software engineering** - understanding business needs and delivering technical solutions!"
+            ];
+            return this.getRandomResponse(responses);
+        }
+        
+        // Project-related responses (Based on actual portfolio data)
         if (message.includes('project') || message.includes('work') || message.includes('portfolio')) {
             const responses = [
-                "I'd be happy to tell you about the portfolio projects! There are several exciting ones including Fyyur (a booking site for musical venues), a coffee shop website, and trivia applications. Each project demonstrates different technical skills and approaches to problem-solving.",
-                "The portfolio showcases a variety of projects ranging from web applications to interactive sites. The Fyyur project is particularly interesting as it involves venue booking functionality, while the coffee shop site focuses on modern design principles.",
-                "Great question about the projects! The portfolio includes full-stack applications, responsive websites, and interactive user interfaces. Each project was built with attention to accessibility, performance, and user experience."
+                "**Current Projects:**\n\n🔥 **SGOP World** - AI-Powered Knowledge Ecosystem for Grid Operators (Professional work at VIVAVIS)\n\n📚 **Personal Knowledge Base** - AI-Supercharged Book Library with advanced search and chat features\n\n🎵 **Fyyur** - Musical Venue & Artist Booking Site with full-stack functionality\n\n☕ **Coffee Shop** - Digital Dynamic Drink Menu Platform with secure authentication\n\n🧠 **Trivia** - Dynamic Quiz Learning Platform with interactive features",
+                "The portfolio showcases **5 major projects** ranging from enterprise AI solutions to educational applications. The **SGOP World** project demonstrates professional experience with AI-powered knowledge systems at VIVAVIS, while the **Personal Knowledge Base** shows innovation in AI-enhanced learning tools.",
+                "**Project highlights:**\n- **SGOP World**: Enterprise AI knowledge platform\n- **Personal Knowledge Base**: AI-enhanced book companion\n- **Fyyur**: Full-stack booking system\n- **Coffee Shop**: Secure digital menu platform\n- **Trivia**: Interactive learning application\n\nEach project demonstrates different aspects of modern web development, from AI integration to responsive design."
             ];
             return this.getRandomResponse(responses);
         }
         
-        // Skills-related responses
+        // Skills-related responses (Based on actual data)
         if (message.includes('skill') || message.includes('technology') || message.includes('programming') || message.includes('language')) {
             const responses = [
-                "The skillset includes modern web technologies like HTML5, CSS3, JavaScript (ES6+), React, Node.js, Python, and various frameworks. There's also experience with databases, version control (Git), and responsive design principles.",
-                "Technical skills span both frontend and backend development, including React, Vue.js, Express.js, PostgreSQL, and modern CSS frameworks. The portfolio also demonstrates proficiency in accessibility best practices and performance optimization.",
-                "The technical expertise covers full-stack development with JavaScript/TypeScript, Python, modern CSS (including SCSS), and various frameworks. There's also experience with databases, API development, and modern development tools."
+                "**Technical Skills:**\n\n💻 **Frontend & Backend Programming** (as confirmed in personal database)\n🌐 **Full-Stack Development**: HTML5, CSS3/SCSS, JavaScript (ES6+), React, Vue.js\n🔧 **Backend Technologies**: Node.js, Python, Flask, Express.js\n🗄️ **Databases**: PostgreSQL, Neon DB\n☁️ **DevOps & Cloud**: Vercel, deployment automation\n🤖 **AI Integration**: LangChain, OpenAI API, AI-powered applications",
+                "**Core Expertise:**\n- **Frontend & Backend Programming** (confirmed specialty)\n- **Modern JavaScript/TypeScript development**\n- **AI-Enhanced Applications** (SGOP World, Knowledge Base)\n- **Database Design & Integration** (PostgreSQL/Neon)\n- **Responsive Design & Accessibility**\n- **DevOps & Deployment** (Vercel, CI/CD)",
+                "The technical profile shows **Front and Backend Programming** expertise with focus on:\n\n🔹 Modern web frameworks (React, Vue.js)\n🔹 Server-side development (Python/Flask, Node.js)\n🔹 AI/ML integration (LangChain, OpenAI)\n🔹 Database management (PostgreSQL)\n🔹 Cloud deployment (Vercel)\n🔹 DevOps practices and automation"
             ];
             return this.getRandomResponse(responses);
         }
         
-        // Experience-related responses
+        // Experience-related responses (Based on actual data)
         if (message.includes('experience') || message.includes('background') || message.includes('career')) {
             const responses = [
-                "The background combines technical expertise with creative problem-solving. Experience ranges from frontend development to full-stack applications, with a focus on creating user-centered, accessible web experiences.",
-                "Professional experience includes working with modern web technologies, building responsive applications, and implementing best practices for accessibility and performance. Each project demonstrates growth and learning in different areas.",
-                "The professional journey has focused on continuous learning and staying current with web development trends. Experience includes both independent projects and collaborative work, with emphasis on clean code and user experience."
+                "**Professional Background:**\n\n📊 **Strategy Consulting** (confirmed experience from personal database)\n🏢 **Current Role**: Working at **VIVAVIS** on enterprise AI solutions\n🤖 **SGOP World Project**: Leading AI-Powered Knowledge Ecosystem for Grid Operators\n💻 **Technical Transition**: Successfully transitioned from strategy consulting to software engineering\n🎯 **Focus Areas**: DevOps, AI integration, and scalable application development",
+                "**Career Journey:**\n- **Strategy Consulting Background** (business analysis & insights)\n- **Current**: Software Engineer at **VIVAVIS**\n- **Specialty**: AI-powered enterprise solutions\n- **Key Project**: SGOP World (AI Knowledge Ecosystem)\n- **Interests**: DevOps and dogs 🐕 (as noted in personal profile)\n- **Transition**: Combining business strategy with technical implementation",
+                "The professional profile shows a unique combination of **Strategy Consulting** experience now applied to software engineering at **VIVAVIS**. Currently working on the **SGOP World** project - an AI-Powered Knowledge Ecosystem for Grid Operators. This background brings a valuable business perspective to technical problem-solving, especially in enterprise AI applications."
             ];
             return this.getRandomResponse(responses);
         }
@@ -231,12 +238,12 @@ class PortfolioChatbot {
             return this.getRandomResponse(responses);
         }
         
-        // About/personal responses
-        if (message.includes('about') || message.includes('who') || message.includes('tell me')) {
+        // About/personal responses (Based on actual data)
+        if (message.includes('about') || message.includes('who') || message.includes('tell me') || message.includes('interest')) {
             const responses = [
-                "This portfolio belongs to a passionate web developer focused on creating accessible, performant, and user-friendly applications. The work demonstrates expertise in modern web technologies and a commitment to best practices.",
-                "You're looking at the work of a dedicated developer who loves building engaging web experiences. The portfolio showcases projects that combine technical skill with creative problem-solving and attention to detail.",
-                "This is the portfolio of a web developer passionate about creating meaningful digital experiences. The projects here represent a journey of continuous learning and growth in modern web development."
+                "**About Tobias Frei:**\n\n👨‍💼 **Background**: Strategy consultant turned software engineer\n🏢 **Current Role**: Working at **VIVAVIS** on enterprise AI solutions\n🎯 **Interests**: **DevOps and dogs** 🐕 (confirmed from personal database)\n💻 **Specialty**: Frontend & Backend Programming\n🚀 **Current Focus**: AI-powered knowledge systems and scalable applications",
+                "**Personal Profile:**\n- **Name**: Tobias Frei\n- **Company**: VIVAVIS\n- **Background**: Strategy Consulting → Software Engineering\n- **Interests**: DevOps and dogs 🐕\n- **Passion**: Combining business strategy with technical innovation\n- **Key Project**: SGOP World (AI Knowledge Ecosystem for Grid Operators)",
+                "Meet **Tobias Frei** - a unique professional who successfully transitioned from **strategy consulting** to software engineering. Currently working at **VIVAVIS**, he combines business insights with technical expertise. His interests include **DevOps and dogs** 🐕, and he's passionate about AI-powered solutions, particularly his work on the **SGOP World** project."
             ];
             return this.getRandomResponse(responses);
         }
@@ -381,7 +388,7 @@ class PortfolioChatbot {
         this.messages = [
             {
                 type: 'bot',
-                content: "Chat cleared! Hi again! I'm your AI-powered portfolio assistant connected to Tobias's personal database. What would you like to know? 🚀"
+                content: "Chat cleared! Hi again! I'm your **live AI assistant** powered by OpenAI and connected to Tobias's personal database via Vercel. What would you like to know? 🚀"
             }
         ];
         this.renderMessages();
