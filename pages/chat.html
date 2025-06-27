@@ -12,44 +12,37 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="header__container">
-            <a href="../index.html" class="header__logo">
-                <img src="../img/logo.png" alt="Portfolio Logo" class="header__logo-img">
-                <span class="header__logo-text">Portfolio</span>
-            </a>
+            <div class="header__logo">
+                <a href="../index.html#bio" aria-label="Go to homepage">
+                    <img src="../img/logo.png" alt="Tobolove DevOps Logo" class="header__logo-img">
+                </a>
+            </div>
             
-            <!-- Mobile Menu Toggle -->
-            <input type="checkbox" id="menu-toggle" class="header__menu-toggle" aria-label="Toggle navigation menu">
-            <label for="menu-toggle" class="header__menu-btn" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-
-            <!-- Navigation -->
-            <nav class="header__nav">
+            <!-- Hidden checkbox for menu toggle switch mobile and desktop -->
+            <input type="checkbox" id="menu-toggle" class="header__menu-checkbox" aria-label="Toggle navigation menu">
+            
+            <nav class="header__nav" id="main-navigation" aria-label="Main navigation">
                 <ul class="header__nav-list">
-                    <li class="header__nav-item">
-                        <a href="../index.html#bio" class="header__nav-link">About</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="../index.html#latest-projects" class="header__nav-link">Projects</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="skills.html" class="header__nav-link">Skills</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="resume.html" class="header__nav-link">Resume</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="chat.html" class="header__nav-link header__nav-link--active" aria-current="page">AI Chat</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a href="contact.html" class="header__nav-link">Contact</a>
-                    </li>
+                    <li><a href="skills.html" class="header__nav-link">Skills</a></li>
+                    <li><a href="../index.html#latest-projects" class="header__nav-link">Projects</a></li>
+                    <li><a href="resume.html" class="header__nav-link">Resume</a></li>
+                    <li><a href="chat.html" class="header__nav-link">AI Chat</a></li>
+                    <li><a href="contact.html" class="header__nav-link">Contact</a></li>
                 </ul>
             </nav>
+
+            <!-- Mobile menu change into X property -->
+            <label for="menu-toggle" class="header__menu-toggle"
+                   aria-controls="main-navigation"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   aria-label="Open navigation menu">
+                <span class="header__menu-icon" aria-hidden="true"></span>
+                <span class="header__menu-icon" aria-hidden="true"></span>
+                <span class="header__menu-icon" aria-hidden="true"></span>
+            </label>
         </div>
     </header>
 
@@ -196,11 +189,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer__container">
-            <p class="footer__text">
-                &copy; 2024 Portfolio. Built with ❤️ and modern web technologies.
-            </p>
+            <div class="footer__content">
+                <p class="footer__text">&copy; <time datetime="2025">est. 2025</time> Tobias Frei. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
